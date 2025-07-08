@@ -16,7 +16,7 @@ function CardProduto({
       <h4>{preco}</h4>
       {/* add-carrinho btn*/}
     </div>
-  )
+  );
 }
 
-export default CardProduto
+export default CardProduto;
