@@ -1,0 +1,17 @@
+.btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.3em 0.5em;
+
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+}
+
+.btnImg {
+  width: 32px;
+}
+
+.btn:hover {
+  background-color: #47474718;
+  cursor: pointer;
+}
