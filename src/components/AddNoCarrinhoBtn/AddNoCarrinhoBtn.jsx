@@ -18,8 +18,27 @@ function AddNoCarrinhoBtn() {
       'carrinho',
       JSON.stringify(
         productsArr != null
-          ? [...productsArr, { produtoId: produtoId, quantidade: 1 }]
-          : [{ produtoId: produtoId, quantidade: 1 }]
+          ? [
+              ...productsArr,
+              {
+                produtoId: produtoId,
+                produtoNome: 'Produto',
+                linkImg: '#',
+                imgAlt: '#',
+                quantidade: 1,
+                preco: 0,
+              },
+            ] //TODO: adicionar informacoes dos produtos
+          : [
+              {
+                produtoId: produtoId,
+                produtoNome: 'Produto',
+                quantidade: 1,
+                linkImg: '#',
+                imgAlt: '#',
+                preco: 0,
+              },
+            ]
       )
     );
   }

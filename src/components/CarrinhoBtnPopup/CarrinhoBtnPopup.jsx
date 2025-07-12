@@ -1,12 +1,27 @@
 import { useState } from 'react';
+import CardCarrinhoBtnPopup from './Card/CardCarrinhoBtnPopup';
+import styles from './CarrinhoBtnPopup.module.css';
 
 function CarrinhoBtnPopup() {
   const [produtosCarrinho, setProdutosCarrinho] = useState(
-    localStorage.getItem('carrinho')
+    JSON.parse(localStorage.getItem('carrinho'))
   );
+
   return (
-    <div>
-      <ul>produtosCarrinho.map()</ul>
+    <div className={styles.listaContainer}>
+      <ul className={styles.lista}>
+        {produtosCarrinho != null &&
+          produtosCarrinho.map((produto) => (
+            <CardCarrinhoBtnPopup
+              key={produto.produtoId}
+              produto={produto.produtoNome}
+              linkImg={produto.linkImg}
+              imgAlt={produto.imgAlt}
+              quantidade={produto.quantidade}
+              preco={produto.preco}
+            />
+          ))}
+      </ul>
     </div>
   );
 }
