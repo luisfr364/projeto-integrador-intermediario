@@ -1,0 +1,21 @@
+.btnsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 80%;
+}
+
+.btn {
+  width: 50%;
+  height: 80%;
+  background: none;
+  border: none;
+}
+
+.btnImg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}

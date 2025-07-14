@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import styles from './AddNoCarrinhoBtn.module.css';
+import AddCarrinhoSVG from '../../assets/add_shopping_cart.svg?react';
+import CheckmarkSVG from '../../assets/checkmark.svg?react';
 
 function AddNoCarrinhoBtn() {
+  const [clicked, setClicked] = useState(false);
+
   function increaseProductQuantity(produtoId) {
     const productsArr = JSON.parse(localStorage.getItem('carrinho'));
     productsArr.forEach((produto, index) => {
@@ -9,6 +14,10 @@ function AddNoCarrinhoBtn() {
       }
     });
     localStorage.setItem('carrinho', JSON.stringify(productsArr));
+    setClicked(!clicked);
+    setTimeout(() => {
+      setClicked(false);
+    }, 1000);
   }
 
   function addUmProdutoNoLS(produtoId) {
@@ -61,8 +70,13 @@ function AddNoCarrinhoBtn() {
   return (
     <>
       <div className={styles.btnContainer} onClick={() => addProduto(100)}>
-        <p className={styles.btnText}>Adicionar</p>
-        <img src="#" alt="" />
+        {clicked ? (
+          <CheckmarkSVG
+            className={`${styles.btnImg} ${styles.btnCheckmarkImg}`}
+          />
+        ) : (
+          <AddCarrinhoSVG className={styles.btnImg} />
+        )}
       </div>
     </>
   );
