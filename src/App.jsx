@@ -4,9 +4,8 @@ import AddNoCarrinhoBtn from './components/AddNoCarrinhoBtn/AddNoCarrinhoBtn';
 import CarrinhoBtn from './components/CarrinhoBtn/CarrinhoBtn';
 import { CarrinhoProvider } from './context/CarrinhoContext';
 import CheckoutCarrinho from './pages/CheckoutCarrinho/CheckoutCarrinho';
-import Products from './components/Products/Products'
-import Home from './pages/Home.jsx'
-
+import Products from './components/Products/Products';
+import Home from './pages/Home.jsx';
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
       */}
       {/* Apenas o componente <Home /> está ativo e será exibido na tela. */}
       <Home />
-      
     </div>
   );
 }
