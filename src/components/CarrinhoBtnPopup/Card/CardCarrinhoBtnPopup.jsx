@@ -4,7 +4,6 @@ import styles from './CardCarrinhoBtnPopup.module.css';
 function CardCarrinhoBtnPopup({
   produtoObj,
   removeProdutoFn,
-  addProdutoFn,
   diminuiQuantidadeProdutoFn,
   aumentaQuantidadeProdutoFn,
 }) {

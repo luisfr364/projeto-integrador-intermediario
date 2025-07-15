@@ -2,66 +2,76 @@ import { useState } from 'react';
 import styles from './AddNoCarrinhoBtn.module.css';
 import AddCarrinhoSVG from '../../assets/add_shopping_cart.svg?react';
 import CheckmarkSVG from '../../assets/checkmark.svg?react';
+import { useCarrinho } from '../../context/CarrinhoContext';
 
-function AddNoCarrinhoBtn() {
+function AddNoCarrinhoBtn({ produtoId }) {
   const [clicked, setClicked] = useState(false);
+  const { produtos, addUmProdutoNoLS, aumentaQuantidadeProduto } =
+    useCarrinho();
 
-  function increaseProductQuantity(produtoId) {
-    const productsArr = JSON.parse(localStorage.getItem('carrinho'));
-    productsArr.forEach((produto, index) => {
-      if (produto.produtoId == produtoId) {
-        productsArr[index].quantidade++;
-      }
-    });
-    localStorage.setItem('carrinho', JSON.stringify(productsArr));
-    setClicked(!clicked);
-    setTimeout(() => {
-      setClicked(false);
-    }, 1000);
-  }
+  //TODO: Remover se não for mais necessária
+  // function increaseProductQuantity(produtoId) {
+  //   const productsArr = JSON.parse(localStorage.getItem('carrinho'));
+  //   productsArr.forEach((produto, index) => {
+  //     if (produto.produtoId == produtoId) {
+  //       productsArr[index].quantidade++;
+  //     }
+  //   });
+  //   localStorage.setItem('carrinho', JSON.stringify(productsArr));
+  //   setClicked(!clicked);
+  //   setTimeout(() => {
+  //     setClicked(false);
+  //   }, 1000);
+  // }
 
-  function addUmProdutoNoLS(produtoId) {
-    const productsArr = JSON.parse(localStorage.getItem('carrinho'));
+  //TODO Remover função addUmProdutoNoLS se não for mais necessária
+  // function addUmProdutoNoLS(produtoId) {
+  //   const productsArr = JSON.parse(localStorage.getItem('carrinho'));
 
-    localStorage.setItem(
-      'carrinho',
-      JSON.stringify(
-        productsArr != null
-          ? [
-              ...productsArr,
-              {
-                produtoId: produtoId,
-                produtoNome: 'Produto',
-                linkImg: '#',
-                imgAlt: '#',
-                quantidade: 1,
-                preco: 0,
-              },
-            ] //TODO: adicionar informacoes dos produtos
-          : [
-              {
-                produtoId: produtoId,
-                produtoNome: 'Produto',
-                quantidade: 1,
-                linkImg: '#',
-                imgAlt: '#',
-                preco: 0,
-              },
-            ]
-      )
-    );
-  }
+  //   localStorage.setItem(
+  //     'carrinho',
+  //     JSON.stringify(
+  //       productsArr != null
+  //         ? [
+  //             ...productsArr,
+  //             {
+  //               produtoId: produtoId,
+  //               produtoNome: 'Produto',
+  //               linkImg: '#',
+  //               imgAlt: '#',
+  //               quantidade: 1,
+  //               preco: 0,
+  //             },
+  //           ] //TODO: adicionar informacoes dos produtos
+  //         : [
+  //             {
+  //               produtoId: produtoId,
+  //               produtoNome: 'Produto',
+  //               quantidade: 1,
+  //               linkImg: '#',
+  //               imgAlt: '#',
+  //               preco: 0,
+  //             },
+  //           ]
+  //     )
+  //   );
+  // }
 
   function addProduto(produtoId) {
-    const productsArr = JSON.parse(localStorage.getItem('carrinho'));
+    if (clicked) return;
 
-    if (productsArr == null) {
+    if (produtos == null) {
       addUmProdutoNoLS(produtoId);
       return;
     }
 
-    if (productsArr.find((produto) => produto.produtoId == produtoId)) {
-      increaseProductQuantity(produtoId);
+    if (produtos.find((produto) => produto.produtoId == produtoId)) {
+      aumentaQuantidadeProduto(produtoId, () => {
+        setClicked(!clicked);
+        setTimeout(() => {
+          setClicked(false);
+        }, 500);
+      });
     } else {
       addUmProdutoNoLS(produtoId);
     }
@@ -69,7 +79,7 @@ function AddNoCarrinhoBtn() {
 
   return (
     <>
-      <div className={styles.btnContainer} onClick={() => addProduto(100)}>
+      <button className={styles.btn} onClick={() => addProduto(produtoId)}>
         {clicked ? (
           <CheckmarkSVG
             className={`${styles.btnImg} ${styles.btnCheckmarkImg}`}
@@ -77,7 +87,7 @@ function AddNoCarrinhoBtn() {
         ) : (
           <AddCarrinhoSVG className={styles.btnImg} />
         )}
-      </div>
+      </button>
     </>
   );
 }

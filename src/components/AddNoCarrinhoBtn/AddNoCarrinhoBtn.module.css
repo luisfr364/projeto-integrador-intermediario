@@ -1,18 +1,21 @@
-.btnContainer {
+.btn {
   width: fit-content;
   height: fit-content;
   display: flex;
   flex-direction: row;
+  padding: 0;
 
   overflow: hidden;
+  cursor: pointer;
+  background: none;
   border: 1px solid #e3e3e3;
   border-radius: 12px;
   transition: 0.3s;
 }
 
 .btnImg {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   padding: 0.3em;
 }
 
