@@ -1,4 +1,4 @@
-import './App.css';
+import './index.css';
 //#####################################
 import AddNoCarrinhoBtn from './components/AddNoCarrinhoBtn/AddNoCarrinhoBtn';
 import CarrinhoBtn from './components/CarrinhoBtn/CarrinhoBtn';

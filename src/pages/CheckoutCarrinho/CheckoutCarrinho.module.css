@@ -1,0 +1,49 @@
+.checkoutContainer {
+  width: 85%;
+  margin: 10svh auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.tituloListaContainer {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.tituloPagina {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.lista {
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: #e3e3e3 solid 1px;
+  border-radius: 12px;
+}
+
+.resumoPedidoContainer {
+  width: 25%;
+  margin-right: 5%;
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: #e3e3e3 solid 1px;
+  border-radius: 12px;
+}

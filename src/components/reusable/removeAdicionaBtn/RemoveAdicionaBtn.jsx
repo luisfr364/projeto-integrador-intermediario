@@ -2,9 +2,15 @@ import styles from './RemoveAdicionaBtn.module.css';
 import RemoveBtnSVG from '../../../assets/remove_btn.svg?react';
 import AddBtnSVG from '../../../assets/add_btn.svg?react';
 
-function RemoveAdicionaBtn({ produtoId, aumenta, diminui, quantidade }) {
+function RemoveAdicionaBtn({
+  produtoId,
+  aumenta,
+  diminui,
+  quantidade,
+  containerStyles,
+}) {
   return (
-    <div className={styles.btnsContainer}>
+    <div className={`${styles.btnsContainer} ${containerStyles}`}>
       <button
         className={styles.btn}
         onClick={() => diminui(produtoId, () => {})}

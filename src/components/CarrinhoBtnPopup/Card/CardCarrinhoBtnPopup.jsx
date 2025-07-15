@@ -1,4 +1,4 @@
-import RemoveAdicionaBtn from '../removeAdicionaBtn/RemoveAdicionaBtn';
+import RemoveAdicionaBtn from '../../reusable/removeAdicionaBtn/RemoveAdicionaBtn';
 import styles from './CardCarrinhoBtnPopup.module.css';
 
 function CardCarrinhoBtnPopup({

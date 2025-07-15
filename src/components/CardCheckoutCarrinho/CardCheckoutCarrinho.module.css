@@ -1,0 +1,22 @@
+.listaItem {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: #e3e3e3 solid 1px;
+}
+
+.cardImg {
+  width: 5px;
+  height: 5px;
+}
+.cardNome {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.btnsContainer {
+  width: 10%;
+  height: 80%;
+}

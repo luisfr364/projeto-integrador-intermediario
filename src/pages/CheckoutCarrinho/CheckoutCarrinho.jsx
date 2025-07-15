@@ -1,4 +1,7 @@
 import useProdutosLocalStorage from '../../hooks/useProdutosLocalStorage';
+import RemoveAdicionaBtn from '../../components/reusable/removeAdicionaBtn/RemoveAdicionaBtn';
+import styles from './CheckoutCarrinho.module.css';
+import CardCheckoutCarrinho from '../../components/CardCheckoutCarrinho/CardCheckoutCarrinho';
 
 function CheckoutCarrinho() {
   const {
@@ -9,24 +12,38 @@ function CheckoutCarrinho() {
   } = useProdutosLocalStorage();
 
   return (
-    <div>
-      {produtos != null &&
-        produtos.map((produto) => (
-          <div key={produto.produtoId}>
-            <h3>{produto.produtoNome}</h3>
-            <img src={produto.linkImg} alt={produto.imgAlt} />
-            <p>Quantidade: {produto.quantidade}</p>
-            <p>Preço: {produto.preco}</p>
-            <RemoveAdicionaBtn
-              produtoId={produto.produtoId}
-              remove={removeProduto}
-              aumenta={aumentaQuantidadeProduto}
-              diminui={diminuiQuantidadeProduto}
-              quantidade={produto.quantidade}
-            />
-          </div>
-        ))}
-      {produtos.length === 0 && <p>Seu carrinho está vazio.</p>}
+    <div className={styles.checkoutContainer}>
+      <div className={styles.tituloListaContainer}>
+        <h1 className={styles.tituloPagina}>Checkout do Carrinho</h1>
+
+        <ul className={styles.lista}>
+          {produtos != null &&
+            produtos.map((produto) => (
+              <CardCheckoutCarrinho
+                key={produto.produtoId}
+                produtoObj={produto}
+                removeProduto={removeProduto}
+                aumentaQuantidadeProduto={aumentaQuantidadeProduto}
+                diminuiQuantidadeProduto={diminuiQuantidadeProduto}
+              />
+            ))}
+        </ul>
+      </div>
+      <div className={styles.resumoPedidoContainer}>
+        <h4>Total: </h4>
+        <span>
+          {produtos
+            .reduce(
+              (accumulator, current) =>
+                accumulator + current.preco * current.quantidade,
+              0
+            )
+            .toFixed(2)}
+        </span>
+        <button></button>
+        <button className={styles.btnFinalizarCompra}>Finalizar Compra</button>
+        <button className={styles.btnLimparCarrinho}>Limpar Carrinho</button>
+      </div>
     </div>
   );
 }
