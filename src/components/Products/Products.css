@@ -1,3 +1,12 @@
 .products{
     padding: 120px 20px 50px ;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px, 1fr));
+    gap: 20px;
 }
+
+/* @media (min-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */

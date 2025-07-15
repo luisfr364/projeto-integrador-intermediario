@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 
 function ProductCard({ data }){
     
-    const {title, thumbnail, price} = data
+    const {title, thumbnail, price, description} = data
 
     return(
         <section className="product-card">
@@ -12,8 +12,9 @@ function ProductCard({ data }){
             className="card__image"/>
 
             <div className="card__infos">
-                <h2 className="card__price">{price}</h2>
                 <h2 className="card__title">{title}</h2>
+                <h2 className="card__price">{price}</h2>
+                <h3 className="card__description">{description}</h3>
             </div>
 
             <button type="button" className="button__add-cart">+</button>
