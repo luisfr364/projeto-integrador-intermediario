@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "title": "Essência da Noite",
+    "price": "R$ 120,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume1.png",
+    "description": "Perfume marcante com notas amadeiradas e toques de âmbar."
+  },
+  {
+    "id": 2,
+    "title": "Brisa Selvagem",
+    "price": "R$ 135,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume2.png",
+    "description": "Aroma refrescante com notas cítricas e fundo herbal."
+  },
+  {
+    "id": 3,
+    "title": "Noite de Poder",
+    "price": "R$ 149,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume3.png",
+    "description": "Fragrância intensa e sedutora, ideal para ocasiões especiais."
+  },
+  {
+    "id": 4,
+    "title": "Força Suprema",
+    "price": "R$ 112,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume4.png",
+    "description": "Combinação de especiarias e madeiras nobres para homens confiantes."
+  },
+  {
+    "id": 5,
+    "title": "Encanto Urbano",
+    "price": "R$ 127,50",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume5.png",
+    "description": "Estilo moderno e elegante com fundo musk sofisticado."
+  },
+  {
+    "id": 6,
+    "title": "Impacto Total",
+    "price": "R$ 139,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume6.png",
+    "description": "Fragrância vibrante com acordes de couro e pimenta preta."
+  },
+  {
+    "id": 7,
+    "title": "Elegância Natural",
+    "price": "R$ 109,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume7.png",
+    "description": "Perfume leve e sofisticado, ideal para o dia a dia."
+  },
+  {
+    "id": 8,
+    "title": "Mistério Azul",
+    "price": "R$ 145,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume8.png",
+    "description": "Notas marinhas e toque cítrico para uma presença refrescante."
+  },
+  {
+    "id": 9,
+    "title": "Instinto Selvagem",
+    "price": "R$ 134,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume9.png",
+    "description": "Fórmula ousada com notas de vetiver e sândalo."
+  },
+  {
+    "id": 10,
+    "title": "Clássico Intenso",
+    "price": "R$ 119,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume10.png",
+    "description": "Perfume tradicional com modernidade e força marcante."
+  },
+  {
+    "id": 11,
+    "title": "Rastro do Fogo",
+    "price": "R$ 151,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume11.png",
+    "description": "Fragrância quente com notas picantes e couro."
+  },
+  {
+    "id": 12,
+    "title": "Aura Selvagem",
+    "price": "R$ 126,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume12.png",
+    "description": "Ideal para homens de espírito livre e autêntico."
+  },
+  {
+    "id": 13,
+    "title": "Domínio Noturno",
+    "price": "R$ 142,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume13.png",
+    "description": "Elegância e intensidade em um único frasco."
+  },
+  {
+    "id": 14,
+    "title": "Vento Forte",
+    "price": "R$ 118,50",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume14.png",
+    "description": "Notas frescas e revigorantes para homens aventureiros."
+  },
+  {
+    "id": 15,
+    "title": "Leão Urbano",
+    "price": "R$ 132,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume15.png",
+    "description": "Aroma dominante, ideal para a noite e ocasiões especiais."
+  },
+  {
+    "id": 16,
+    "title": "Sombra Magnética",
+    "price": "R$ 125,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume16.png",
+    "description": "Perfume misterioso com notas orientais."
+  },
+  {
+    "id": 17,
+    "title": "Explosão Cítrica",
+    "price": "R$ 110,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume17.png",
+    "description": "Cítrico e vibrante para os dias quentes."
+  },
+  {
+    "id": 18,
+    "title": "Encanto Imperial",
+    "price": "R$ 140,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume18.png",
+    "description": "Sofisticação e classe em cada gota."
+  },
+  {
+    "id": 19,
+    "title": "Essência Bruta",
+    "price": "R$ 138,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume19.png",
+    "description": "Força masculina com toques terrosos e amadeirados."
+  },
+  {
+    "id": 20,
+    "title": "Toque Real",
+    "price": "R$ 149,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume20.png",
+    "description": "Fragrância refinada para homens de presença marcante."
+  },
+  {
+    "id": 21,
+    "title": "Ardente Luxo",
+    "price": "R$ 129,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume21.png",
+    "description": "Sofisticação com notas de especiarias quentes."
+  },
+  {
+    "id": 22,
+    "title": "Instinto de Aço",
+    "price": "R$ 119,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume22.png",
+    "description": "Fragrância metálica e forte para homens decididos."
+  },
+  {
+    "id": 23,
+    "title": "Noite Silenciosa",
+    "price": "R$ 133,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume23.png",
+    "description": "Toques suaves e elegantes para momentos reservados."
+  },
+  {
+    "id": 24,
+    "title": "Selva Noturna",
+    "price": "R$ 121,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume24.png",
+    "description": "Aventura e natureza em forma de aroma."
+  },
+  {
+    "id": 25,
+    "title": "Tempestade Azul",
+    "price": "R$ 144,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume25.png",
+    "description": "Acordes aquáticos e refrescantes com final cítrico."
+  },
+  {
+    "id": 26,
+    "title": "Tensão Magnética",
+    "price": "R$ 132,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume26.png",
+    "description": "Atração envolvente com notas picantes e doces."
+  },
+  {
+    "id": 27,
+    "title": "Realeza Negra",
+    "price": "R$ 147,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume27.png",
+    "description": "Sofisticação extrema com aroma imponente."
+  },
+  {
+    "id": 28,
+    "title": "Chama Oculta",
+    "price": "R$ 130,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume28.png",
+    "description": "Perfume com intensidade misteriosa e quente."
+  },
+  {
+    "id": 29,
+    "title": "Poder Cinza",
+    "price": "R$ 115,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume29.png",
+    "description": "Discrição e elegância com fundo esfumaçado."
+  },
+  {
+    "id": 30,
+    "title": "Lenda Selvagem",
+    "price": "R$ 150,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume30.png",
+    "description": "Mistura de aventura e intensidade com fundo amadeirado."
+  },
+  {
+    "id": 31,
+    "title": "Luz da Madrugada",
+    "price": "R$ 124,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume31.png",
+    "description": "Fragrância suave e envolvente para noites tranquilas."
+  },
+  {
+    "id": 32,
+    "title": "Chamas Frias",
+    "price": "R$ 139,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume32.png",
+    "description": "Contraste marcante entre frescor e intensidade."
+  },
+  {
+    "id": 33,
+    "title": "Toque Sombrio",
+    "price": "R$ 128,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume33.png",
+    "description": "Perfume misterioso com fundo de âmbar e baunilha."
+  },
+  {
+    "id": 34,
+    "title": "Caminho Real",
+    "price": "R$ 131,50",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume34.png",
+    "description": "Elegância clássica com notas florais e madeiras."
+  },
+  {
+    "id": 35,
+    "title": "Fúria Azul",
+    "price": "R$ 140,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume35.png",
+    "description": "Fragrância dinâmica, ideal para homens ousados."
+  },
+  {
+    "id": 36,
+    "title": "Forte Instinto",
+    "price": "R$ 136,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume36.png",
+    "description": "Toques intensos e marcantes com fundo terroso."
+  },
+  {
+    "id": 37,
+    "title": "Desejo Profundo",
+    "price": "R$ 144,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume37.png",
+    "description": "Aromas envolventes com toque de couro e canela."
+  },
+  {
+    "id": 38,
+    "title": "Ritmo do Vento",
+    "price": "R$ 122,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume38.png",
+    "description": "Leveza e frescor para dias ativos."
+  },
+  {
+    "id": 39,
+    "title": "Mistura Fatal",
+    "price": "R$ 137,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume39.png",
+    "description": "Combinação exótica com especiarias orientais."
+  },
+  {
+    "id": 40,
+    "title": "Luxo Selvagem",
+    "price": "R$ 148,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume40.png",
+    "description": "Fragrância poderosa com fundo amadeirado intenso."
+  },
+  {
+    "id": 41,
+    "title": "Aroma Infinito",
+    "price": "R$ 134,50",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume41.png",
+    "description": "Perfume duradouro com notas elegantes e vibrantes."
+  },
+  {
+    "id": 42,
+    "title": "Espírito Livre",
+    "price": "R$ 118,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume42.png",
+    "description": "Fragrância leve e refrescante para homens modernos."
+  },
+  {
+    "id": 43,
+    "title": "Som do Silêncio",
+    "price": "R$ 126,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume43.png",
+    "description": "Notas suaves e discretas com presença marcante."
+  },
+  {
+    "id": 44,
+    "title": "Noite Sagrada",
+    "price": "R$ 152,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume44.png",
+    "description": "Toque sofisticado com especiarias nobres."
+  },
+  {
+    "id": 45,
+    "title": "Alma Selvagem",
+    "price": "R$ 129,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume45.png",
+    "description": "Aromas crus e naturais para homens intensos."
+  },
+  {
+    "id": 46,
+    "title": "Horizonte Azul",
+    "price": "R$ 119,99",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume46.png",
+    "description": "Notas oceânicas com frescor duradouro."
+  },
+  {
+    "id": 47,
+    "title": "Toque de Aventura",
+    "price": "R$ 138,50",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume47.png",
+    "description": "Inspirado no espírito livre e explorador."
+  },
+  {
+    "id": 48,
+    "title": "Clássico Moderno",
+    "price": "R$ 124,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume48.png",
+    "description": "Elegância tradicional com um toque contemporâneo."
+  },
+  {
+    "id": 49,
+    "title": "Instinto da Manhã",
+    "price": "R$ 133,00",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume49.png",
+    "description": "Fragrância leve, ideal para o dia a dia."
+  },
+  {
+    "id": 50,
+    "title": "Sombras de Luxo",
+    "price": "R$ 149,90",
+    "category": "masculinos",
+    "thumbnail": "/imagens/masculinos/perfume50.png",
+    "description": "Perfume envolvente com presença sofisticada."
+  },
+  {
+    "id": 51,
+    "title": "Aura Encantada",
+    "price": "R$ 131,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume51.png",
+    "description": "Fragrância delicada com toques florais e frutados."
+  },
+  {
+    "id": 52,
+    "title": "Beleza Selvagem",
+    "price": "R$ 139,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume52.png",
+    "description": "Aroma vibrante e envolvente para mulheres ousadas."
+  },
+  {
+    "id": 53,
+    "title": "Jardim Secreto",
+    "price": "R$ 128,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume53.png",
+    "description": "Mistura floral com notas suaves de lírio e jasmim."
+  },
+  {
+    "id": 54,
+    "title": "Doce Tentação",
+    "price": "R$ 142,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume54.png",
+    "description": "Fragrância adocicada com toque de baunilha e frutas vermelhas."
+  },
+  {
+    "id": 55,
+    "title": "Luz do Sol",
+    "price": "R$ 125,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume55.png",
+    "description": "Aroma leve e fresco, perfeito para o dia a dia."
+  },
+  {
+    "id": 56,
+    "title": "Rosa Dourada",
+    "price": "R$ 138,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume56.png",
+    "description": "Elegância clássica com toque de pétalas de rosa."
+  },
+  {
+    "id": 57,
+    "title": "Brilho de Estrela",
+    "price": "R$ 145,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume57.png",
+    "description": "Notas doces e vibrantes como o céu noturno."
+  },
+  {
+    "id": 58,
+    "title": "Sussurro da Manhã",
+    "price": "R$ 123,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume58.png",
+    "description": "Fragrância fresca com toque de cítricos e flores."
+  },
+  {
+    "id": 59,
+    "title": "Doce Melodia",
+    "price": "R$ 130,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume59.png",
+    "description": "Aroma doce e suave com notas de frutas vermelhas."
+  },
+  {
+    "id": 60,
+    "title": "Toque de Seda",
+    "price": "R$ 149,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume60.png",
+    "description": "Perfume elegante e sofisticado para ocasiões especiais."
+  },
+  {
+    "id": 61,
+    "title": "Alma de Flor",
+    "price": "R$ 128,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume61.png",
+    "description": "Notas florais suaves que despertam emoções."
+  },
+  {
+    "id": 62,
+    "title": "Jardim de Verão",
+    "price": "R$ 135,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume62.png",
+    "description": "Fragrância refrescante e leve para dias ensolarados."
+  },
+  {
+    "id": 63,
+    "title": "Encanto Dourado",
+    "price": "R$ 141,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume63.png",
+    "description": "Aroma sofisticado com toques de âmbar e baunilha."
+  },
+  {
+    "id": 64,
+    "title": "Flor da Manhã",
+    "price": "R$ 122,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume64.png",
+    "description": "Perfume leve com notas frescas de flores brancas."
+  },
+  {
+    "id": 65,
+    "title": "Sonho de Verão",
+    "price": "R$ 130,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume65.png",
+    "description": "Aroma vibrante com toques frutados e florais."
+  },
+  {
+    "id": 66,
+    "title": "Doce Tentação",
+    "price": "R$ 136,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume66.png",
+    "description": "Notas de baunilha e frutas para um toque irresistível."
+  },
+  {
+    "id": 67,
+    "title": "Luz do Entardecer",
+    "price": "R$ 128,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume67.png",
+    "description": "Fragrância quente e acolhedora para a noite."
+  },
+  {
+    "id": 68,
+    "title": "Magia Rosa",
+    "price": "R$ 140,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume68.png",
+    "description": "Aroma floral intenso com toque de frutas vermelhas."
+  },
+  {
+    "id": 69,
+    "title": "Jasmim do Oriente",
+    "price": "R$ 135,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume69.png",
+    "description": "Notas exóticas e sedutoras de jasmim e especiarias."
+  },
+  {
+    "id": 70,
+    "title": "Beleza Serena",
+    "price": "R$ 131,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume70.png",
+    "description": "Perfume calmo com notas florais e toque amadeirado."
+  },
+  {
+    "id": 71,
+    "title": "Brisa do Mar",
+    "price": "R$ 123,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume71.png",
+    "description": "Fragrância fresca e leve, perfeita para o verão."
+  },
+  {
+    "id": 72,
+    "title": "Toque de Primavera",
+    "price": "R$ 139,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume72.png",
+    "description": "Notas florais que evocam jardins em flor."
+  },
+  {
+    "id": 73,
+    "title": "Doce Segredo",
+    "price": "R$ 128,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume73.png",
+    "description": "Mistura doce e suave com toque misterioso."
+  },
+  {
+    "id": 74,
+    "title": "Encanto da Lua",
+    "price": "R$ 145,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume74.png",
+    "description": "Fragrância envolvente e mágica para a noite."
+  },
+  {
+    "id": 75,
+    "title": "Flor de Cerejeira",
+    "price": "R$ 134,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume75.png",
+    "description": "Perfume delicado com essência de flores orientais."
+  },
+  {
+    "id": 76,
+    "title": "Sonho Doce",
+    "price": "R$ 130,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume76.png",
+    "description": "Aroma suave com notas de mel e baunilha."
+  },
+  {
+    "id": 77,
+    "title": "Brilho Rosa",
+    "price": "R$ 125,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume77.png",
+    "description": "Perfume alegre e vibrante para o dia a dia."
+  },
+  {
+    "id": 78,
+    "title": "Céu de Flores",
+    "price": "R$ 142,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume78.png",
+    "description": "Fragrância leve e fresca com toque floral."
+  },
+  {
+    "id": 79,
+    "title": "Aroma de Primavera",
+    "price": "R$ 131,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume79.png",
+    "description": "Perfume floral que traz alegria e frescor."
+  },
+  {
+    "id": 80,
+    "title": "Doce Alma",
+    "price": "R$ 129,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume80.png",
+    "description": "Notas doces e aconchegantes para todas as ocasiões."
+  },
+  {
+    "id": 81,
+    "title": "Flor do Campo",
+    "price": "R$ 133,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume81.png",
+    "description": "Perfume leve e natural com toque floral."
+  },
+  {
+    "id": 82,
+    "title": "Luz do Amanhecer",
+    "price": "R$ 137,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume82.png",
+    "description": "Fragrância fresca e revigorante para começar o dia."
+  },
+  {
+    "id": 83,
+    "title": "Doce Vento",
+    "price": "R$ 140,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume83.png",
+    "description": "Aroma suave com notas frutadas e florais."
+  },
+  {
+    "id": 84,
+    "title": "Jardim Secreto",
+    "price": "R$ 128,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume84.png",
+    "description": "Mistura delicada de flores e frutas para momentos especiais."
+  },
+  {
+    "id": 85,
+    "title": "Toque de Seda",
+    "price": "R$ 145,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume85.png",
+    "description": "Perfume sofisticado e elegante para ocasiões noturnas."
+  },
+  {
+    "id": 86,
+    "title": "Brisa de Verão",
+    "price": "R$ 132,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume86.png",
+    "description": "Fragrância leve e refrescante com notas cítricas."
+  },
+  {
+    "id": 87,
+    "title": "Flor da Lua",
+    "price": "R$ 134,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume87.png",
+    "description": "Perfume misterioso e encantador com toque floral."
+  },
+  {
+    "id": 88,
+    "title": "Doce Esperança",
+    "price": "R$ 129,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume88.png",
+    "description": "Notas doces e suaves que inspiram leveza."
+  },
+  {
+    "id": 89,
+    "title": "Jasmim Azul",
+    "price": "R$ 138,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume89.png",
+    "description": "Fragrância exótica com essência de jasmim e âmbar."
+  },
+  {
+    "id": 90,
+    "title": "Brilho Lunar",
+    "price": "R$ 141,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume90.png",
+    "description": "Aroma elegante para mulheres sofisticadas."
+  },
+  {
+    "id": 91,
+    "title": "Doce Encanto",
+    "price": "R$ 135,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume91.png",
+    "description": "Perfume suave e envolvente com notas florais."
+  },
+  {
+    "id": 92,
+    "title": "Toque de Rosas",
+    "price": "R$ 130,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume92.png",
+    "description": "Aroma delicado de rosas frescas."
+  },
+  {
+    "id": 93,
+    "title": "Sonho Doce",
+    "price": "R$ 129,90",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume93.png",
+    "description": "Notas doces e suaves para momentos especiais."
+  },
+  {
+    "id": 94,
+    "title": "Brisa Floral",
+    "price": "R$ 140,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume94.png",
+    "description": "Perfume leve e refrescante com toques florais."
+  },
+  {
+    "id": 95,
+    "title": "Flor do Amanhecer",
+    "price": "R$ 132,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume95.png",
+    "description": "Aroma suave que lembra o início de um novo dia."
+  },
+  {
+    "id": 96,
+    "title": "Encanto da Manhã",
+    "price": "R$ 125,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume96.png",
+    "description": "Fragrância fresca e delicada para todas as horas."
+  },
+  {
+    "id": 97,
+    "title": "Doce Magia",
+    "price": "R$ 138,50",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume97.png",
+    "description": "Perfume doce e envolvente com notas de mel."
+  },
+  {
+    "id": 98,
+    "title": "Brilho da Tarde",
+    "price": "R$ 130,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume98.png",
+    "description": "Aroma vibrante para momentos alegres."
+  },
+  {
+    "id": 99,
+    "title": "Toque de Primavera",
+    "price": "R$ 133,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume99.png",
+    "description": "Notas florais que evocam a estação das flores."
+  },
+  {
+    "id": 100,
+    "title": "Sonho de Flores",
+    "price": "R$ 145,00",
+    "category": "femininos",
+    "thumbnail": "/imagens/femininos/perfume100.png",
+    "description": "Fragrância leve e encantadora para mulheres especiais."
+  }
+]
