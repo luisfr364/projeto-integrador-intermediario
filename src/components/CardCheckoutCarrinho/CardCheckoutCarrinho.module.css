@@ -1,5 +1,6 @@
 .listaItem {
   width: 95%;
+  min-height: 20%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,8 +9,8 @@
 }
 
 .cardImg {
-  height: 60%;
-  width: 8%;
+  height: 10%;
+  width: 6%;
 }
 .cardNome {
   margin: 0;
