@@ -34,5 +34,4 @@ export default ProductCard;
 
 ProductCard.propTypes = {
   data: propTypes.shape({}),
-  data: propTypes.shape({}),
 }.isRequired;
