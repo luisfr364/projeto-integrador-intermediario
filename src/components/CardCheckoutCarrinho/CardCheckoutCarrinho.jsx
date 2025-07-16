@@ -1,6 +1,5 @@
 import styles from './CardCheckoutCarrinho.module.css';
-import AddBtnSVG from '/src/assets/add_btn.svg?react';
-import RemoveBtnSVG from '/src/assets/remove_btn.svg?react';
+
 import RemoveAdicionaBtn from '../reusable/removeAdicionaBtn/RemoveAdicionaBtn';
 import currencyToFloat from '../../util/currencyToFloat';
 
