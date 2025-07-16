@@ -1,0 +1,153 @@
+<!-- Adicione este estilo no cabeçalho -->
+<style>
+    .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+    }
+    
+    .cart-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-right: 20px;
+    }
+    
+    .cart-item-info {
+        flex-grow: 1;
+    }
+    
+    .cart-summary {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+    }
+    
+    .summary-details {
+        margin-top: 15px;
+    }
+    
+    .summary-details p {
+        margin-bottom: 10px;
+    }
+    
+    .total {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    
+    .checkout-btn {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    
+    .checkout-btn:hover {
+        background-color: #1E9C95;
+    }
+    
+    .remove-item {
+        background: none;
+        border: none;
+        color: #ff6b6b;
+        cursor: pointer;
+        margin-top: 5px;
+        padding: 0;
+    }
+    
+    .empty-cart {
+        text-align: center;
+        padding: 50px 0;
+    }
+</style>
+
+<!-- No corpo da página -->
+<div class="container">
+    <div class="main-content">
+        <h1 class="section-title">Seu Carrinho</h1>
+        <div class="cart-items" id="cart-items">
+            <!-- Itens serão inseridos aqui via JavaScript -->
+        </div>
+        <div class="cart-summary">
+            <h3>Resumo do Pedido</h3>
+            <div class="summary-details">
+                <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+                <p>Frete: <span id="shipping">Grátis</span></p>
+                <p class="total">Total: <span id="total">R$ 0,00</span></p>
+                <button class="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const subtotalElement = document.getElementById('subtotal');
+        const totalElement = document.getElementById('total');
+        
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="empty-cart">
+                    <p>Seu carrinho está vazio.</p>
+                    <a href="index.html" class="btn">Continue comprando</a>
+                </div>
+            `;
+            return;
+        }
+        
+        let subtotal = 0;
+        
+        cart.forEach((item, index) => {
+            const price = parseFloat(item.price);
+            subtotal += price;
+            
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <p class="price">R$ ${price.toFixed(2).replace('.', ',')}</p>
+                    <button class="remove-item" data-index="${index}">Remover</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+        
+        subtotalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        totalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        
+        // Add event listeners for remove buttons
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                removeFromCart(index);
+            });
+        });
+        
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload();
+        }
+        
+        // Finalizar compra
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            alert('Compra finalizada com sucesso!');
+            localStorage.removeItem('cart');
+            location.href = 'index.html';
+        });
+    });
+</script>

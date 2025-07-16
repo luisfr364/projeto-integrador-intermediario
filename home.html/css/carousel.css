@@ -1,0 +1,88 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.carousel-item h3 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.carousel-item .price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.carousel-item .old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.carousel-item .discount {
+    background-color: #FF6B6B;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.carousel-item button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.carousel-item button:hover {
+    background-color: #1E9C95;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
