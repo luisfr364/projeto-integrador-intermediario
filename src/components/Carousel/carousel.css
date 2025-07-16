@@ -1,0 +1,46 @@
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden; /* <-- MUDANÇA PRINCIPAL: "Corta" qualquer animação que saia da caixa. */
+  border-radius: 10px; /* <-- Adicionado para garantir que a imagem não "vaze" pelos cantos arredondados. */
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%; /* Garante que a imagem preencha o contêiner */
+  object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease; /* <-- MELHORIA: Transição suave para o hover */
+  user-select: none; /* <-- MELHORIA: Impede a seleção de texto nos botões */
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* <-- MELHORIA: Feedback visual ao passar o mouse */
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
