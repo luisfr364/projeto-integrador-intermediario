@@ -2,6 +2,8 @@ import CardCarrinhoBtnPopup from './Card/CardCarrinhoBtnPopup';
 import styles from './CarrinhoBtnPopup.module.css';
 import { useRef, useEffect } from 'react';
 import { useCarrinho } from '../../context/CarrinhoContext';
+import currencyToFloat from '../../util/currencyToFloat';
+import { Link } from 'react-router-dom';
 
 function CarrinhoBtnPopup({ toggleCarrinho, refBtn }) {
   // const [produtosCarrinho, setProdutosCarrinho] = useState(
@@ -85,6 +87,19 @@ function CarrinhoBtnPopup({ toggleCarrinho, refBtn }) {
             />
           ))}
       </ul>
+      <div className={styles.totalNCheckoutContainer}>
+        <p className={styles.total}>
+          Total: R${' '}
+          {produtos
+            .reduce((acc, produto) => {
+              return acc + produto.quantidade * currencyToFloat(produto.preco);
+            }, 0)
+            .toFixed(2)}
+        </p>
+        <Link to={'./checkout'} className={styles.anchorToCheckout}>
+          Finalizar
+        </Link>
+      </div>
     </div>
   );
 }

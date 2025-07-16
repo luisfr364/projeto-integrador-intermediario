@@ -4,9 +4,12 @@ import Products from './components/Products/Products';
 
 function App() {
   return (
-    <div>
-      <Products />
-    </div>
+    <CarrinhoProvider>
+      <div>
+        <CarrinhoBtn />
+        <Products />
+      </div>
+    </CarrinhoProvider>
   );
 }
 

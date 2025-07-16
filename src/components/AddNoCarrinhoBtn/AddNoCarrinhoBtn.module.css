@@ -1,4 +1,9 @@
 .btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 10;
+
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -7,10 +12,11 @@
 
   overflow: hidden;
   cursor: pointer;
-  background: none;
-  border: 1px solid #e3e3e3;
+  background: #4747474d;
   border-radius: 12px;
-  transition: 0.3s;
+  border-width: 0;
+
+  animation: btnAnimation 0.3s ease-in-out;
 }
 
 .btnImg {
@@ -30,4 +36,13 @@
 
 .btnContainer:hover {
   background-color: #47474718;
+}
+
+@keyframes btnAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

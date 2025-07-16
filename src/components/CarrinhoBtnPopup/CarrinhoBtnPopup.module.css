@@ -1,7 +1,12 @@
 .listaContainer {
-  width: 400px;
-  height: 250px;
-  margin-top: 5px;
+  width: 500px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
   padding: 0.1em;
   position: absolute;
   right: -1%;
@@ -10,6 +15,7 @@
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
 .lista {
@@ -21,4 +27,29 @@
   gap: 0.15em;
   justify-content: start;
   overflow-y: auto;
+}
+
+.totalNCheckoutContainer {
+  width: 80%;
+  height: 12%;
+  margin: 0.4em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anchorToCheckout {
+  padding: 0.8em 1.5em;
+  background-color: #00c04aea;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.lista::-webkit-scrollbar {
+  width: 8px;
 }

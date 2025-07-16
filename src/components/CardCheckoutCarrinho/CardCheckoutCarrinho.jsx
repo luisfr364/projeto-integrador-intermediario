@@ -2,6 +2,7 @@ import styles from './CardCheckoutCarrinho.module.css';
 import AddBtnSVG from '/src/assets/add_btn.svg?react';
 import RemoveBtnSVG from '/src/assets/remove_btn.svg?react';
 import RemoveAdicionaBtn from '../reusable/removeAdicionaBtn/RemoveAdicionaBtn';
+import currencyToFloat from '../../util/currencyToFloat';
 
 function CardCheckoutCarrinho({
   produtoObj,
@@ -18,7 +19,6 @@ function CardCheckoutCarrinho({
       />
       <h3 className={styles.cardNome}>{produtoObj.produtoNome}</h3>
       <p>Quantidade: {produtoObj.quantidade}</p>
-      <p>Preço Unit: R$ {produtoObj.preco.toFixed(2)}</p>
       <RemoveAdicionaBtn
         produtoId={produtoObj.produtoId}
         remove={removeProduto}
@@ -27,9 +27,21 @@ function CardCheckoutCarrinho({
         quantidade={produtoObj.quantidade}
         containerStyles={styles.btnsContainer}
       />
-      <div className={styles.precoContainer}>
-        <p>Total: </p>
-        <p>R$ {(produtoObj.quantidade * produtoObj.preco).toFixed(2)}</p>
+      <div className={styles.precoETotalContainer}>
+        <div>
+          <p>Preço Unit:</p>
+          <p>R$ {currencyToFloat(produtoObj.preco).toFixed(2)}</p>
+        </div>
+
+        <div>
+          <p>Total: </p>
+          <p>
+            R${' '}
+            {(
+              produtoObj.quantidade * currencyToFloat(produtoObj.preco)
+            ).toFixed(2)}
+          </p>
+        </div>
       </div>
     </li>
   );

@@ -8,7 +8,7 @@ let router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/CheckoutCarrinho',
+    path: '/checkout',
     element: <CheckoutCarrinho />,
   },
 ]);

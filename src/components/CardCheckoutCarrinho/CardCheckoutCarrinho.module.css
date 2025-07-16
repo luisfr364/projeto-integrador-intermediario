@@ -8,8 +8,8 @@
 }
 
 .cardImg {
-  width: 5px;
-  height: 5px;
+  height: 60%;
+  width: 8%;
 }
 .cardNome {
   margin: 0;
@@ -19,4 +19,11 @@
 .btnsContainer {
   width: 10%;
   height: 80%;
+}
+
+.precoETotalContainer {
+  display: flex;
+  width: 25%;
+  flex-direction: row;
+  justify-content: space-between;
 }

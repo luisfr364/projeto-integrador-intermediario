@@ -3,6 +3,7 @@ import useProdutosLocalStorage from '../../hooks/useProdutosLocalStorage';
 import RemoveAdicionaBtn from '../../components/reusable/removeAdicionaBtn/RemoveAdicionaBtn';
 import styles from './CheckoutCarrinho.module.css';
 import CardCheckoutCarrinho from '../../components/CardCheckoutCarrinho/CardCheckoutCarrinho';
+import currencyToFloat from '../../util/currencyToFloat';
 
 function CheckoutCarrinho() {
   const {
@@ -41,13 +42,14 @@ function CheckoutCarrinho() {
       <div className={styles.resumoPedidoContainer}>
         <h2 className={styles.tituloResumo}>Resumo do Pedido</h2>
         <div className={styles.resumoPedidoTotalContainer}>
-          <h4>Total: </h4>
+          <h4>Subtotal: </h4>
           <span>
             R${' '}
             {produtos
               .reduce(
                 (accumulator, current) =>
-                  accumulator + current.preco * current.quantidade,
+                  accumulator +
+                  currencyToFloat(current.preco) * current.quantidade,
                 0
               )
               .toFixed(2)}
@@ -58,6 +60,22 @@ function CheckoutCarrinho() {
           <h4>Frete: </h4>
           <span>R$ {precoFrete > 0 ? precoFrete.toFixed(2) : '0.00'}</span>
         </div>
+
+        <div className={styles.resumoPedidoTotalContainer}>
+          <h4>Total: </h4>
+          <span>
+            R${' '}
+            {(
+              produtos.reduce(
+                (accumulator, current) =>
+                  accumulator +
+                  currencyToFloat(current.preco) * current.quantidade,
+                0
+              ) + precoFrete
+            ).toFixed(2)}
+          </span>
+        </div>
+
         <div className={styles.calculaFreteContainer}>
           <div className={styles.inputEnderecoContainer}>
             <label htmlFor="cep">Calcule o frete</label>
@@ -68,11 +86,18 @@ function CheckoutCarrinho() {
               className={styles.inputEndereco}
             />
           </div>
-          <button onClick={() => setPrecoFrete(Math.random() * 100)}>a</button>
+
+          <button onClick={() => setPrecoFrete(Math.random() * 100)}>
+            Calcular
+          </button>
         </div>
-        <div>
-          <button></button>
-          <button></button>
+        <div className={styles.checkoutBtnContainer}>
+          <button className={styles.checkoutBtn} disabled>
+            Ir para pagamentos
+          </button>
+          <button className={styles.checkoutBtn} disabled>
+            Cancelar pedido
+          </button>
         </div>
       </div>
     </div>
