@@ -1,7 +1,7 @@
 import React from "react";
 import'./ProductCard.css';
 import propTypes from 'prop-types';
-
+import AddNoCarrinhoBtn from '../AddNoCarrinhoBtn/AddNoCarrinhoBtn'
 function ProductCard({ data }){
     
     const {title, thumbnail, price, description} = data
@@ -17,7 +17,7 @@ function ProductCard({ data }){
                 <h3 className="card__description">{description}</h3>
             </div>
 
-            <button type="button" className="button__add-cart">+</button>
+            <AddNoCarrinhoBtn />
 
         </section>
     );
