@@ -4,7 +4,13 @@ import AddCarrinhoSVG from '../../assets/add_shopping_cart.svg?react';
 import CheckmarkSVG from '../../assets/checkmark.svg?react';
 import { useCarrinho } from '../../context/CarrinhoContext';
 
-function AddNoCarrinhoBtn({ produtoId }) {
+function AddNoCarrinhoBtn({
+  produtoId,
+  showBtn,
+  produtoNome,
+  linkImg,
+  produtoPreco,
+}) {
   const [clicked, setClicked] = useState(false);
   const { produtos, addUmProdutoNoLS, aumentaQuantidadeProduto } =
     useCarrinho();
@@ -61,7 +67,7 @@ function AddNoCarrinhoBtn({ produtoId }) {
     if (clicked) return;
 
     if (produtos == null) {
-      addUmProdutoNoLS(produtoId);
+      addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco);
       return;
     }
 
@@ -70,24 +76,26 @@ function AddNoCarrinhoBtn({ produtoId }) {
         setClicked(!clicked);
         setTimeout(() => {
           setClicked(false);
-        }, 500);
+        }, 400);
       });
     } else {
-      addUmProdutoNoLS(produtoId);
+      addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco);
     }
   }
 
   return (
     <>
-      <button className={styles.btn} onClick={() => addProduto(produtoId)}>
-        {clicked ? (
-          <CheckmarkSVG
-            className={`${styles.btnImg} ${styles.btnCheckmarkImg}`}
-          />
-        ) : (
-          <AddCarrinhoSVG className={styles.btnImg} />
-        )}
-      </button>
+      {showBtn && (
+        <button className={styles.btn} onClick={() => addProduto(produtoId)}>
+          {clicked ? (
+            <CheckmarkSVG
+              className={`${styles.btnImg} ${styles.btnCheckmarkImg}`}
+            />
+          ) : (
+            <AddCarrinhoSVG className={styles.btnImg} />
+          )}
+        </button>
+      )}
     </>
   );
 }

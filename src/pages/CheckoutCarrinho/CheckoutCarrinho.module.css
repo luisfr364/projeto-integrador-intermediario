@@ -1,6 +1,8 @@
 .checkoutContainer {
+  height: 50svh;
   width: 85%;
   margin: 10svh auto;
+
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -38,7 +40,7 @@
 
 .resumoPedidoContainer {
   width: 25%;
-  height: 25svh;
+  height: 35svh;
   padding: 2em;
   margin-right: 5%;
   margin-top: 2.2rem;
@@ -74,15 +76,61 @@
 .calculaFreteContainer {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .inputEnderecoContainer {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
+  gap: 3px;
   align-items: start;
   justify-content: center;
+}
+.inputEnderecoContainer input {
+  width: 80%;
+  padding: 0.5em;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+}
+
+.inputEnderecoContainer > label {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.calculaFreteContainer > button {
+  width: 20%;
+  margin-top: 3%;
+  padding: 0.8em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.inputEnderecoContainer input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.checkoutBtnContainer {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.checkoutBtn {
+  padding: 1em;
+  background: none;
+  border: 2px solid #e3e3e3;
+
+  border-radius: 12px;
 }

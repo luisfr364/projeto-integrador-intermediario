@@ -7,28 +7,28 @@ export function CarrinhoProvider({ children }) {
     JSON.parse(localStorage.getItem('carrinho')) || []
   );
 
-  function addUmProdutoNoLS(produtoId) {
+  function addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco) {
     if (produtos != null) {
       setProdutos([
         ...produtos,
         {
           produtoId: produtoId,
-          produtoNome: 'Produto',
-          linkImg: '#',
+          produtoNome: produtoNome,
+          linkImg: linkImg,
           imgAlt: '#',
           quantidade: 1,
-          preco: 0,
+          preco: produtoPreco,
         },
       ]);
     } else {
       setProdutos([
         {
           produtoId: produtoId,
-          produtoNome: 'Produto',
-          quantidade: 1,
-          linkImg: '#',
+          produtoNome: produtoNome,
+          linkImg: linkImg,
           imgAlt: '#',
-          preco: 0,
+          quantidade: 1,
+          preco: produtoPreco,
         },
       ]);
     }

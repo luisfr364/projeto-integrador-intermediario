@@ -9,6 +9,17 @@
   border-radius: 12px;
   overflow: hidden;
   flex: 1 1 300px; /* para crescer em grids responsivos */
+.product-card {
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1 1 300px; /* para crescer em grids responsivos */
 }
 
 .card__image {
@@ -22,6 +33,10 @@
   padding: 16px;
   border-top: 1px solid #ddd;
   text-align: left;
+.card__infos {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  text-align: left;
 }
 
 .card__price {
@@ -29,8 +44,17 @@
   font-weight: 600;
   color: #000000;
   margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
 }
 
+.card__description {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  font-weight: 500;
 .card__description {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
@@ -46,10 +70,19 @@
   text-transform: capitalize;
   line-height: 1.2;
   letter-spacing: 0.3px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 6px;
+  text-align: left;
+  text-transform: capitalize;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
 }
 
 .product-card:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2; /* Z-index para garantir que o card não fique acima do botão de adicionar ao carrinho */
   transform: translateY(-2px);
   transition: all 0.3s ease;
 }
@@ -70,8 +103,26 @@
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 1.5rem;
   cursor: pointer;
+.button__add-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  margin: 12px 15px;
+  color: blue;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .product-card:hover .button__add-cart {
   display: flex;
+  display: flex;
 }
+
