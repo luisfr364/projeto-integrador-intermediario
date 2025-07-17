@@ -1,6 +1,6 @@
-import './index.css';
-//#####################################
-import AddNoCarrinhoBtn from './components/AddNoCarrinhoBtn/AddNoCarrinhoBtn';
+import './App.css';
+import Products from './components/Products/Products';
+import { CarrinhoProvider } from './context/CarrinhoContext';
 import CarrinhoBtn from './components/CarrinhoBtn/CarrinhoBtn';
 import { CarrinhoProvider } from './context/CarrinhoContext';
 import CheckoutCarrinho from './pages/CheckoutCarrinho/CheckoutCarrinho';
