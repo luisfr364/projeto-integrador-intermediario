@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import './Products.css';
 import ProductCard from '../ProductCard/ProductCard';
+import ProductModal from '../ProductModal/ProductModal';
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     fetch('/products.json')

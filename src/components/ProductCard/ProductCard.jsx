@@ -2,13 +2,14 @@ import { useState } from 'react';
 import './ProductCard.css';
 import propTypes from 'prop-types';
 import AddNoCarrinhoBtn from '../AddNoCarrinhoBtn/AddNoCarrinhoBtn';
-function ProductCard({ data }) {
+function ProductCard({ data, onClick }) {
   const { title, thumbnail, price, description, id } = data;
   const [showBtn, setShowBtn] = useState(false); //Estado para controlar a visibilidade do botão
 
   return (
     <section
       className="product-card"
+      onClick={onClick}
       onMouseEnter={() => setShowBtn(true)} //Exibe o botão ao passar o mouse
       onMouseLeave={() => setShowBtn(false)} //Esconde o botão ao retirar o mouse
     >
@@ -30,8 +31,13 @@ function ProductCard({ data }) {
   );
 }
 
-export default ProductCard;
-
 ProductCard.propTypes = {
-  data: propTypes.shape({}),
-}.isRequired;
+  data: propTypes.shape({
+    title: propTypes.string,
+    thumbnail: propTypes.string,
+    price: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  }).isRequired,
+  onClick: propTypes.func, // <-- adicionar validação
+};
+
+export default ProductCard;
