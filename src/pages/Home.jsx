@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import Carousel from '../components/Carousel/carousel.jsx';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer/Footer.jsx';
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
             Ver todos os produtos
           </Link>
           {/* O botão acima é um link para a página de produtos */}
+          <Footer />
         </section>
       </main>
     </div>
