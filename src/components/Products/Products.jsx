@@ -13,16 +13,6 @@ function Products() {
       .then((data) => setProducts(data));
   }, []);
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const data = await fetch('/products.json');
-  //       const json = await data.json();
-  //       setProducts(json);
-  //     };
-
-  //     fetchData();
-  //   }, []);
-
   return (
     <section className="products container">
       {products.map((product) => (
