@@ -8,7 +8,6 @@
   height: fit-content;
   display: flex;
   flex-direction: row;
-  padding: 0;
 
   overflow: hidden;
   cursor: pointer;
@@ -20,8 +19,8 @@
 }
 
 .btnImg {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   padding: 0.3em;
 }
 

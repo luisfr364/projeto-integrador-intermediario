@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 // 1. Importe o 'motion' e o 'AnimatePresence' do framer-motion
 import { motion, AnimatePresence } from 'framer-motion';
-import './Carousel.css';
+import './carousel.css';
 
 import imagem1 from '/images/masculinos/perfume1.png';
 import imagem2 from '/images/masculinos/perfume2.png';
@@ -48,8 +48,10 @@ function Carousel() {
 
   return (
     <div className="carousel">
-      <button onClick={handlePrev} className="carousel-button prev-button">{"<"}</button>
-      
+      <button onClick={handlePrev} className="carousel-button prev-button">
+        {'<'}
+      </button>
+
       {/* 2. O AnimatePresence gerencia as animações de entrada e saída */}
       <AnimatePresence mode="wait">
         <motion.img
@@ -58,16 +60,17 @@ function Carousel() {
           src={images[currentIndex]}
           alt="Slide do carrossel"
           className="carousel-image"
-          
           // 4. Define as animações
           initial={{ opacity: 0 }} // Estado inicial: invisível
           animate={{ opacity: 1 }} // Estado de animação: totalmente visível
-          exit={{ opacity: 0 }}    // Estado de saída: invisível
+          exit={{ opacity: 0 }} // Estado de saída: invisível
           transition={{ duration: 0.8 }} // Duração da animação em segundos
         />
       </AnimatePresence>
-      
-      <button onClick={handleNext} className="carousel-button next-button">{">"}</button>
+
+      <button onClick={handleNext} className="carousel-button next-button">
+        {'>'}
+      </button>
     </div>
   );
 }

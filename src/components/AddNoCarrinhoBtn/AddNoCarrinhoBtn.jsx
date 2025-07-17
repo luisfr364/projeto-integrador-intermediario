@@ -15,54 +15,6 @@ function AddNoCarrinhoBtn({
   const { produtos, addUmProdutoNoLS, aumentaQuantidadeProduto } =
     useCarrinho();
 
-  //TODO: Remover se não for mais necessária
-  // function increaseProductQuantity(produtoId) {
-  //   const productsArr = JSON.parse(localStorage.getItem('carrinho'));
-  //   productsArr.forEach((produto, index) => {
-  //     if (produto.produtoId == produtoId) {
-  //       productsArr[index].quantidade++;
-  //     }
-  //   });
-  //   localStorage.setItem('carrinho', JSON.stringify(productsArr));
-  //   setClicked(!clicked);
-  //   setTimeout(() => {
-  //     setClicked(false);
-  //   }, 1000);
-  // }
-
-  //TODO Remover função addUmProdutoNoLS se não for mais necessária
-  // function addUmProdutoNoLS(produtoId) {
-  //   const productsArr = JSON.parse(localStorage.getItem('carrinho'));
-
-  //   localStorage.setItem(
-  //     'carrinho',
-  //     JSON.stringify(
-  //       productsArr != null
-  //         ? [
-  //             ...productsArr,
-  //             {
-  //               produtoId: produtoId,
-  //               produtoNome: 'Produto',
-  //               linkImg: '#',
-  //               imgAlt: '#',
-  //               quantidade: 1,
-  //               preco: 0,
-  //             },
-  //           ] //TODO: adicionar informacoes dos produtos
-  //         : [
-  //             {
-  //               produtoId: produtoId,
-  //               produtoNome: 'Produto',
-  //               quantidade: 1,
-  //               linkImg: '#',
-  //               imgAlt: '#',
-  //               preco: 0,
-  //             },
-  //           ]
-  //     )
-  //   );
-  // }
-
   function addProduto(produtoId) {
     if (clicked) return;
 
@@ -72,12 +24,11 @@ function AddNoCarrinhoBtn({
     }
 
     if (produtos.find((produto) => produto.produtoId == produtoId)) {
-      aumentaQuantidadeProduto(produtoId, () => {
-        setClicked(!clicked);
-        setTimeout(() => {
-          setClicked(false);
-        }, 400);
-      });
+      setClicked(true);
+      setTimeout(() => {
+        setClicked(false);
+      }, 300);
+      aumentaQuantidadeProduto(produtoId, () => {});
     } else {
       addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco);
     }

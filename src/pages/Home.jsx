@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Carousel from '../components/Carousel/carousel.jsx';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -10,16 +11,18 @@ function Home() {
         <p>Confira nossos destaques da semana.</p>
       </main>
       {/* O Carrossel continua na parte de cima */}
-      <Carousel /> 
+      <Carousel />
       {/* Todo o resto do conteúdo agrupado */}
       <main className="home-content">
         {/* Apenas a seção de Chamada para Ação (CTA) permanece */}
         <section className="cta-section">
           <h2>Explore Todos os Nossos Produtos</h2>
-          <a href="/produtos" className="cta-button">Ver todos os produtos</a>
+          <Link to={'/produtos'} className="cta-button">
+            Ver todos os produtos
+          </Link>
+          {/* O botão acima é um link para a página de produtos */}
         </section>
       </main>
-
     </div>
   );
 }

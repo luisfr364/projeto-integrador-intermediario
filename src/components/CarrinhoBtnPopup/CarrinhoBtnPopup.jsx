@@ -96,7 +96,7 @@ function CarrinhoBtnPopup({ toggleCarrinho, refBtn }) {
             }, 0)
             .toFixed(2)}
         </p>
-        <Link to={'./checkout'} className={styles.anchorToCheckout}>
+        <Link to={'/checkout'} className={styles.anchorToCheckout}>
           Finalizar
         </Link>
       </div>
