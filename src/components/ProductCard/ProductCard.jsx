@@ -2,12 +2,12 @@ import React from "react";
 import'./ProductCard.css';
 import propTypes from 'prop-types';
 import AddNoCarrinhoBtn from '../AddNoCarrinhoBtn/AddNoCarrinhoBtn'
-function ProductCard({ data }){
+function ProductCard({ data, onClick }){
     
     const {title, thumbnail, price, description} = data
 
     return(
-        <section className="product-card">
+        <section className="product-card" onClick={onClick}>
             <img src={thumbnail} 
             className="card__image"/>
 
@@ -23,8 +23,13 @@ function ProductCard({ data }){
     );
 }
 
-export default ProductCard;
-
 ProductCard.propTypes = {
-    data: propTypes.shape({}),
-}.isRequired;
+  data: propTypes.shape({
+    title: propTypes.string,
+    thumbnail: propTypes.string,
+    price: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  }).isRequired,
+  onClick: propTypes.func, // <-- adicionar validação
+};
+
+export default ProductCard;
