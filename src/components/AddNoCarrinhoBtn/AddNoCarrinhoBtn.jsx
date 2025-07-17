@@ -15,21 +15,29 @@ function AddNoCarrinhoBtn({
   const { produtos, addUmProdutoNoLS, aumentaQuantidadeProduto } =
     useCarrinho();
 
+  function clickedBtn() {
+    if (clicked) return;
+
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 300);
+  }
+
   function addProduto(produtoId) {
     if (clicked) return;
 
     if (produtos == null) {
       addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco);
+      clickedBtn();
       return;
     }
 
     if (produtos.find((produto) => produto.produtoId == produtoId)) {
-      setClicked(true);
-      setTimeout(() => {
-        setClicked(false);
-      }, 300);
+      clickedBtn();
       aumentaQuantidadeProduto(produtoId, () => {});
     } else {
+      clickedBtn();
       addUmProdutoNoLS(produtoId, produtoNome, linkImg, produtoPreco);
     }
   }

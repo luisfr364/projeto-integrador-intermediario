@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import CarrinhoBtn from '../CarrinhoBtn/CarrinhoBtn';
 
-function Header() {
+function Header({ showCarrinho = true }) {
   return (
     <header className={styles.header}>
       <Link to="/" className="logo">
@@ -12,7 +12,7 @@ function Header() {
           alt="Logo da loja"
         />
       </Link>
-      <CarrinhoBtn />
+      {showCarrinho && <CarrinhoBtn />}
     </header>
   );
 }
