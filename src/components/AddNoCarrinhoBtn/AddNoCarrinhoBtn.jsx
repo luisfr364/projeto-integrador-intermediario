@@ -10,12 +10,14 @@ function AddNoCarrinhoBtn({
   produtoNome,
   linkImg,
   produtoPreco,
+  handleCarrinhoClick,
 }) {
   const [clicked, setClicked] = useState(false);
   const { produtos, addUmProdutoNoLS, aumentaQuantidadeProduto } =
     useCarrinho();
 
   function clickedBtn() {
+    handleCarrinhoClick();
     if (clicked) return;
 
     setClicked(true);
@@ -25,6 +27,7 @@ function AddNoCarrinhoBtn({
   }
 
   function addProduto(produtoId) {
+    handleCarrinhoClick();
     if (clicked) return;
 
     if (produtos == null) {

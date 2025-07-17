@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './ProductCard.css';
 import propTypes from 'prop-types';
 import AddNoCarrinhoBtn from '../AddNoCarrinhoBtn/AddNoCarrinhoBtn';
-function ProductCard({ data, onClick }) {
+function ProductCard({ data, onClick, handleCarrinhoClick }) {
   const { title, thumbnail, price, description, id } = data;
   const [showBtn, setShowBtn] = useState(false); //Estado para controlar a visibilidade do botão
 
@@ -20,6 +20,7 @@ function ProductCard({ data, onClick }) {
         produtoId={id}
         produtoPreco={price}
         linkImg={thumbnail}
+        handleCarrinhoClick={handleCarrinhoClick}
       />
 
       <div className="card__infos">
