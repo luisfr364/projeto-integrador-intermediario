@@ -22,9 +22,9 @@ function Home() {
             Ver todos os produtos
           </Link>
           {/* O botão acima é um link para a página de produtos */}
-          <Footer />
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
