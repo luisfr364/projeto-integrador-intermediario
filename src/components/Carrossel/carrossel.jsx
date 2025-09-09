@@ -1,12 +1,12 @@
-import home from "../Home/home.jsx";
-import styles from "../Home/home.css";
+import Carrossel from "./carrossel.jsx";
+import styles from "./carrosel.css";
 
-export default function home() {
+function Carrossel () {
   return (
     <div className={styles.home}>
       {/* Hero com carrossel */}
       <section className={styles.hero}>
-        <home />
+        <Carrossel />
       </section>
 
       {/* Produtos em destaque */}
@@ -70,3 +70,5 @@ export default function home() {
     </div>
   );
 }
+
+export default Carrossel

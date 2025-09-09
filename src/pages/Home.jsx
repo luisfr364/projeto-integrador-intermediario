@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Carousel from '../components/Carousel/carousel.jsx';
+import Carrossel from '../components/Carrossel/carrossel.jsx';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer/Footer.jsx';
 
@@ -12,7 +12,7 @@ function Home() {
         <p>Confira nossos destaques da semana.</p>
       </main>
       {/* O Carrossel continua na parte de cima */}
-      <Carousel />
+      <Carrossel />
       {/* Todo o resto do conteúdo agrupado */}
       <main className="home-content">
         {/* Apenas a seção de Chamada para Ação (CTA) permanece */}
