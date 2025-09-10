@@ -1,18 +1,27 @@
-.header {
-  width: 100%;
+.navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 3em;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
+  background-color: #222;
+  padding: 1em;
 }
 
-.headerLogo {
-  width: 250px;
-  height: auto;
+.list {
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
+
+.item{
+  margin-right: 1em;
+}
+
+.item a {
+  color: white;
+  text-decoration: none;
+}
+
+.item a:hover{
+  color: gray;
+  text-decoration: none;
+}
+
