@@ -2,11 +2,12 @@ import { createBrowserRouter } from 'react-router-dom';
 import CheckoutCarrinho from './pages/CheckoutCarrinho/CheckoutCarrinho';
 import App from './App';
 import ProdutosPage from './pages/Produtos/ProdutosPage';
+import Home from './pages/Home.jsx'
 
 let router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Home />,
   },
   {
     path: '/produtos',
