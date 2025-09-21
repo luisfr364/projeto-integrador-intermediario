@@ -8,7 +8,8 @@ import Login from './Login/login.jsx'
 function Home() {
   return (
     <div>
-      <Login />
+      <Header />
+
     </div>
   );
 }

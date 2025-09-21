@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom';
-import styles from './header.module.css';
+import '../Header/header.css'
 import CarrinhoBtn from '../CarrinhoBtn/CarrinhoBtn';
+import { body } from 'framer-motion/client';
 
-function header() {
+function Header() {
   return (
-    <nav class={styles.navbar}>
-        <Link to="/">
-        </Link>
-        <ul class={styles.list}>
-          <li className={styles.item}><h1>Usuário</h1></li>
-          <li className={styles.item}>
-            <Link to="products">Produtos</Link>
-          </li>
-          <li className={styles.item}><h1>Carrinho</h1></li>
-        </ul>
-    </nav>
+    <div className="header">
+      <h2 className="logo">Logo</h2>
+      <nav className='navigation'>
+        <a href="#">Home</a>
+        <a href="#">Produtos</a>
+        <a href="#">Carrinho</a>
+        <button className='btnLogin'>Login</button>
+      </nav>
+    </div>
   );
 }
 
-export default header;
+export default Header;

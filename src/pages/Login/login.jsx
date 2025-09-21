@@ -37,18 +37,18 @@ function login() {
             <label>Password</label>
           </div>
 
-          <div className="recall-forget">
+          <div className="remember-forgot">
             <label>
               <input type="checkbox" />
               Lembre de mim
             </label>
           </div>
 
-          <button>Login</button>
+          <button className='btn'>Login</button>
 
-          <div className="signup-link">
+          <div className="login-register">
             <p>
-              Não tem conta ? <a href="#">Registrar</a>
+              Não tem conta ? <a href="#" className='register-link'>Registrar</a>
             </p>
           </div>
         </form>
