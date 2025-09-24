@@ -1,19 +1,43 @@
 import { Link } from 'react-router-dom';
 import '../Header/header.css';
 import CarrinhoBtn from '../CarrinhoBtn/CarrinhoBtn';
-import { body } from 'framer-motion/client';
+import LoginBtn from '../LoginBtn/LoginBtn';
 
 function Header() {
   return (
-    <div className="header">
-      <h2 className="logo">Logo</h2>
-      <nav className="navigation">
-        <Link to="/">Home</Link>
-        <Link to="/produtos">Produtos</Link>
-        <CarrinhoBtn />
-        <Link to="/login" className="btnLogin">Login</Link>
-      </nav>
-    </div>
+    <header className={styles.header}>
+      <div className="container">
+        <div className={styles.headerContent}>
+          <Link to="/" className="logo">
+            <img
+              src="/images/logo.png"
+              className={styles.logoImg}
+              alt="Logo da loja"
+            />
+          </Link>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/produtos">Produtos</Link>
+              </li>
+              <li>
+                <Link to="/produtos">Masculino</Link>
+              </li>
+              <li>
+                <Link to="/produtos">Feminino</Link>
+              </li>
+            </ul>
+          </nav>
+          <div className={styles.searchCart}>
+            <LoginBtn />
+            {showCarrinho && <CarrinhoBtn />}
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
 

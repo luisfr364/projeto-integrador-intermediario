@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Products.css';
+import styles from './Products.module.css';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductModal from '../ProductModal/ProductModal';
 
@@ -37,16 +37,15 @@ function Products() {
   }, []);
 
   return (
-    <section className="products container">
-      {products &&
-        products.map((product) => (
-          <ProductCard
-            key={product.id}
-            data={product}
-            onClick={() => setSelectedProduct(product)}
-            handleCarrinhoClick={handleCarrinhoClick}
-          />
-        ))}
+    <section className={styles.products + ' container'}>
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          data={product}
+          onClick={() => setSelectedProduct(product)}
+          handleCarrinhoClick={handleCarrinhoClick}
+        />
+      ))}
       {selectedProduct && !carrinhoOpen ? (
         <ProductModal
           product={selectedProduct}

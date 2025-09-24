@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #eee;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btnImg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
