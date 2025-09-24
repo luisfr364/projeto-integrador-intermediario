@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './ProductModal.css';
+import styles from './ProductModal.module.css';
 
 function ProductModal({ product, onClose }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,19 +16,19 @@ function ProductModal({ product, onClose }) {
   if (!product) return null;
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
+    <div className={styles.modalOverlay} onClick={handleClose}>
       <div
-        className={`popup ${isOpen ? 'open-popup' : ''}`}
+        className={`${styles.popup} ${isOpen ? styles.openPopup : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-button" onClick={handleClose}>
+        <button className={styles.closeButton} onClick={handleClose}>
           ×
         </button>
         <img src={product.thumbnail} alt={product.title} />
-        <div className="info">
-          <h2 className="modal-title">{product.title}</h2>
-          <p className="modal-description">{product.description}</p>
-          <p className="modal-price">{product.price}</p>
+        <div className={styles.info}>
+          <h2 className={styles.modalTitle}>{product.title}</h2>
+          <p className={styles.modalDescription}>{product.description}</p>
+          <p className={styles.modalPrice}>{product.price}</p>
         </div>
       </div>
     </div>

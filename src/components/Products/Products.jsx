@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Products.css';
+import styles from './Products.module.css';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductModal from '../ProductModal/ProductModal';
 
@@ -25,7 +25,7 @@ function Products() {
   }, []);
 
   return (
-    <section className="products container">
+    <section className={styles.products + ' container'}>
       {products.map((product) => (
         <ProductCard
           key={product.id}

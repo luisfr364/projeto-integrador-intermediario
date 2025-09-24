@@ -10,14 +10,14 @@
   border-radius: 10px; /* <-- Adicionado para garantir que a imagem não "vaze" pelos cantos arredondados. */
 }
 
-.carousel-image {
+.carouselImage {
   width: 100%;
   height: 100%; /* Garante que a imagem preencha o contêiner */
   object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-button {
+.carouselButton {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -33,14 +33,19 @@
   user-select: none; /* <-- MELHORIA: Impede a seleção de texto nos botões */
 }
 
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.8); /* <-- MELHORIA: Feedback visual ao passar o mouse */
+.carouselButton:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* <-- MELHORIA: Feedback visual ao passar o mouse */
 }
 
-.prev-button {
+.prevButton {
   left: 10px;
 }
 
-.next-button {
+.nextButton {
   right: 10px;
 }

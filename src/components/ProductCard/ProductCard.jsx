@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ProductCard.css';
+import styles from './ProductCard.module.css';
 import propTypes from 'prop-types';
 import AddNoCarrinhoBtn from '../AddNoCarrinhoBtn/AddNoCarrinhoBtn';
 function ProductCard({ data, onClick, handleCarrinhoClick }) {
@@ -8,12 +8,12 @@ function ProductCard({ data, onClick, handleCarrinhoClick }) {
 
   return (
     <section
-      className="product-card"
+      className={styles.productCard}
       onClick={onClick}
       onMouseEnter={() => setShowBtn(true)} //Exibe o botão ao passar o mouse
       onMouseLeave={() => setShowBtn(false)} //Esconde o botão ao retirar o mouse
     >
-      <img src={thumbnail} className="card__image" />
+      <img src={thumbnail} className={styles.cardImage} />
       <AddNoCarrinhoBtn
         showBtn={showBtn}
         produtoNome={title}
@@ -23,10 +23,10 @@ function ProductCard({ data, onClick, handleCarrinhoClick }) {
         handleCarrinhoClick={handleCarrinhoClick}
       />
 
-      <div className="card__infos">
-        <h2 className="card__title">{title}</h2>
-        <h2 className="card__price">{price}</h2>
-        <h3 className="card__description">{description}</h3>
+      <div className={styles.cardInfos}>
+        <h2 className={styles.cardTitle}>{title}</h2>
+        <h2 className={styles.cardPrice}>{price}</h2>
+        <h3 className={styles.cardDescription}>{description}</h3>
       </div>
     </section>
   );

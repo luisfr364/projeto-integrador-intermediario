@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-// 1. Importe o 'motion' e o 'AnimatePresence' do framer-motion
-import { motion, AnimatePresence } from 'framer-motion';
-import './carousel.css';
+import styles from './carousel.module.css';
 
 import imagem1 from '/images/masculinos/perfume1.png';
 import imagem2 from '/images/masculinos/perfume2.png';
@@ -47,29 +45,28 @@ function Carousel() {
   };
 
   return (
-    <div className="carousel">
-      <button onClick={handlePrev} className="carousel-button prev-button">
-        {'<'}
+    <div className={styles.carousel}>
+      <button
+        onClick={handlePrev}
+        className={`${styles.carouselButton} ${styles.prevButton}`}
+      >
+        ‹
       </button>
-
-      {/* 2. O AnimatePresence gerencia as animações de entrada e saída */}
-      <AnimatePresence mode="wait">
-        <motion.img
-          // 3. A 'key' é MUITO importante. Ela diz ao React que a imagem mudou.
-          key={currentIndex}
-          src={images[currentIndex]}
-          alt="Slide do carrossel"
-          className="carousel-image"
-          // 4. Define as animações
-          initial={{ opacity: 0 }} // Estado inicial: invisível
-          animate={{ opacity: 1 }} // Estado de animação: totalmente visível
-          exit={{ opacity: 0 }} // Estado de saída: invisível
-          transition={{ duration: 0.8 }} // Duração da animação em segundos
-        />
-      </AnimatePresence>
-
-      <button onClick={handleNext} className="carousel-button next-button">
-        {'>'}
+      <img
+        key={currentIndex}
+        src={images[currentIndex]}
+        alt={`Slide ${currentIndex + 1}`}
+        className={styles.carouselImage}
+        style={{ opacity: 0, transform: 'translateX(100px)' }}
+        animate={{ opacity: 1, transform: 'translateX(0px)' }}
+        exit={{ opacity: 0, transform: 'translateX(-100px)' }}
+        transition={{ duration: 0.5 }}
+      />
+      <button
+        onClick={handleNext}
+        className={`${styles.carouselButton} ${styles.nextButton}`}
+      >
+        ›
       </button>
     </div>
   );
