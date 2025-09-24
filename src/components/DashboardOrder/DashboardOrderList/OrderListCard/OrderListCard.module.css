@@ -1,0 +1,88 @@
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.orderId {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.pendente {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.entregue {
+  background-color: #28a745;
+}
+
+.cancelado {
+  background-color: #dc3545;
+}
+
+.cardBody {
+  padding: 16px;
+  color: #555;
+}
+
+.cardBody p {
+  margin: 0 0 10px;
+}
+
+.address {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.cardFooter {
+  padding: 12px 16px;
+  background-color: #f8f9fa;
+  text-align: right;
+  border-top: 1px solid #ddd;
+}
+
+.detailsButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.detailsButton:hover {
+  background-color: #0056b3;
+}

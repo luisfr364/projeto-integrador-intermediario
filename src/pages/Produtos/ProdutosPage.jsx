@@ -1,5 +1,5 @@
 import CarrinhoBtn from '../../components/CarrinhoBtn/CarrinhoBtn';
-import Header from '../../components/Header/header';
+import Header from '../../components/Header/Header.jsx';
 import Products from '../../components/Products/Products';
 import { CarrinhoProvider } from '../../context/CarrinhoContext';
 

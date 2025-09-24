@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model address {
+  id           Int     @id @default(autoincrement())
+  street_name  String  @db.VarChar(255)
+  house_number Int
+  complement   String? @db.VarChar(100)
+  city         String  @db.VarChar(100)
+  state        String  @db.Char(3)
+  zip          Int
+  order        order[]
+  user         user[]
+}
+
+model user {
+  id            Int             @id @default(autoincrement())
+  name          String          @db.VarChar(255)
+  email         String          @unique @db.VarChar(255)
+  password      String          @db.VarChar(255)
+  phone         String?         @db.VarChar(20)
+  address_id    Int?
+  role          String          @db.VarChar(25)
+  order         order[]
+  product       product[]
+  product_sales product_sales[]
+  address       address?        @relation(fields: [address_id], references: [id])
+}
+
+model product {
+  id            Int             @id @default(autoincrement())
+  title         String          @db.VarChar(100)
+  image_url     String?
+  description   String?         @db.VarChar(255)
+  unit_price    Float
+  quantity      Int             @default(0)
+  seller_id     Int
+  category      String?         @db.VarChar(50)
+  status        String?         @db.VarChar(50)
+  seller        user            @relation(fields: [seller_id], references: [id])
+  product_sales product_sales[]
+}
+
+model order {
+  id               Int            @id @default(autoincrement())
+  date             DateTime       @db.Timestamp(6)
+  product_sales_id Int?
+  total            Float
+  status           String         @db.VarChar(255)
+  address_id       Int
+  buyer_id         Int?
+  address          address        @relation(fields: [address_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user             user?          @relation(fields: [buyer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  product_sales    product_sales? @relation(fields: [product_sales_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model product_sales {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @db.Timestamp(6)
+  product_id Int
+  seller_id  Int
+  quantity   Int
+  order      order[]
+  product    product  @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user       user     @relation(fields: [seller_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

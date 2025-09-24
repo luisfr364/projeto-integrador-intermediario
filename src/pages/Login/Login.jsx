@@ -1,15 +1,33 @@
 import React from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import './login.css';
+import './Login.css';
 
-function login() {
+function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    alert('Conta criada com sucesso !');
+    const response = await fetch(
+      'https://render.com/docs/web-services#port-binding/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      navigate('/dashboard');
+    } else {
+      console.error('Login failed');
+    }
   };
 
   return (
@@ -21,7 +39,7 @@ function login() {
             <FaUser className="icon" />
             <input
               type="email"
-              placeholder=' '
+              placeholder=" "
               onChange={(e) => setUsername(e.target.value)}
             />
             <label>Email</label>
@@ -31,7 +49,7 @@ function login() {
             <FaLock className="icon" />
             <input
               type="password"
-              placeholder=' '
+              placeholder=" "
               onChange={(e) => setPassword(e.target.value)}
             />
             <label>Password</label>
@@ -44,11 +62,14 @@ function login() {
             </label>
           </div>
 
-          <button className='btn'>Login</button>
+          <button className="btn">Login</button>
 
           <div className="login-register">
             <p>
-              Não tem conta ? <a href="#" className='register-link'>Registrar</a>
+              Não tem conta ?{' '}
+              <a href="#" className="register-link">
+                Registrar
+              </a>
             </p>
           </div>
         </form>
@@ -57,4 +78,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;
