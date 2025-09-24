@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaUser, FaLock, FaEnvelope, FaPhone } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 import styles from './Register.module.css';
 
 function Register() {
@@ -87,7 +88,7 @@ function Register() {
               </button>
               <div className={styles.registerLink}>
                 <p>
-                  Already have an account? <a href="/login">Login</a>
+                  Já tem uma conta? <Link to="/login">Login</Link>
                 </p>
               </div>
             </form>

@@ -95,10 +95,16 @@ function CheckoutCarrinho() {
             </button>
           </div>
           <div className={styles.checkoutBtnContainer}>
-            <button className={styles.checkoutBtn} disabled>
+            <button
+              className={`${styles.checkoutBtn} ${styles.primary}`}
+              disabled
+            >
               Ir para pagamentos
             </button>
-            <button className={styles.checkoutBtn} disabled>
+            <button
+              className={`${styles.checkoutBtn} ${styles.secondary}`}
+              disabled
+            >
               Cancelar pedido
             </button>
           </div>

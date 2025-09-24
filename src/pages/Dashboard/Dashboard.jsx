@@ -18,6 +18,11 @@ const Dashboard = () => {
         <nav>
           <ul className={styles.nav}>
             <li className={styles.navItem}>
+              <Link to="products" className={getLinkClassName('products')}>
+                My Products
+              </Link>
+            </li>
+            <li className={styles.navItem}>
               <Link to="orders" className={getLinkClassName('pedidos')}>
                 Pedidos
               </Link>

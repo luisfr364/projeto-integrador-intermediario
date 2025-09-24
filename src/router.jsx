@@ -7,6 +7,7 @@ import Login from './pages/Login/Login.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import DashboardOrderList from './components/DashboardOrder/DashboardOrderList/DashboardOrderList.jsx';
 import Register from './pages/Register/Register.jsx';
+import DashboardProductList from './components/DashboardProductList/DashboardProductList.jsx';
 
 let router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ let router = createBrowserRouter([
       {
         path: 'orders',
         element: <DashboardOrderList />,
+      },
+      {
+        path: 'products',
+        element: <DashboardProductList />,
       },
     ],
   },
