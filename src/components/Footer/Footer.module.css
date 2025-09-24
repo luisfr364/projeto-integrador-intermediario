@@ -1,10 +1,10 @@
 .footer {
   width: 100vw;
-  background: linear-gradient(135deg, #e4e4e4, #cfcfcf);
-  color: #000;
+  background-color: var(--white);
+  color: var(--dark-grey);
   padding: 2em 1em;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--medium-grey);
 }
 
 .container {
@@ -23,12 +23,13 @@
 }
 
 .info h3 {
-  color: #000;
+  color: var(--dark-grey);
   margin-bottom: 0.5em;
+  font-weight: 600;
 }
 
 .info p {
-  color: #333;
+  color: var(--secondary-color);
   font-size: 0.9rem;
   margin: 0.3em 0;
 }
@@ -42,20 +43,20 @@
 }
 
 .social a {
-  color: #000;
+  color: var(--dark-grey);
   transition: color 0.3s ease;
 }
 
 .social a:hover {
-  color: #ffffff;
+  color: var(--primary-color);
 }
 
 .copyright {
   width: 100%;
   font-size: 0.8rem;
   text-align: center;
-  color: #666;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  color: var(--secondary-color);
+  border-top: 1px solid var(--medium-grey);
   padding-top: 1rem;
   margin-top: 2rem;
 }

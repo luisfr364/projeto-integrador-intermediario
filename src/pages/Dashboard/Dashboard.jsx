@@ -18,7 +18,7 @@ const Dashboard = () => {
         <nav>
           <ul className={styles.nav}>
             <li className={styles.navItem}>
-              <Link to="pedidos" className={getLinkClassName('pedidos')}>
+              <Link to="orders" className={getLinkClassName('pedidos')}>
                 Pedidos
               </Link>
             </li>

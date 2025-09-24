@@ -19,21 +19,34 @@ function Products() {
   }
 
   useEffect(() => {
-    fetch('/products.json')
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    async function fetchProducts() {
+      const response = await fetch(
+        'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products',
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      const data = await response.json();
+      setProducts(data.data);
+      console.log(data);
+    }
+    fetchProducts();
   }, []);
 
   return (
     <section className="products container">
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          data={product}
-          onClick={() => setSelectedProduct(product)}
-          handleCarrinhoClick={handleCarrinhoClick}
-        />
-      ))}
+      {products &&
+        products.map((product) => (
+          <ProductCard
+            key={product.id}
+            data={product}
+            onClick={() => setSelectedProduct(product)}
+            handleCarrinhoClick={handleCarrinhoClick}
+          />
+        ))}
       {selectedProduct && !carrinhoOpen ? (
         <ProductModal
           product={selectedProduct}

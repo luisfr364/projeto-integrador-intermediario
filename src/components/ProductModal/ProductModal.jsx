@@ -28,7 +28,7 @@ function ProductModal({ product, onClose }) {
         <div className="info">
           <h2 className="modal-title">{product.title}</h2>
           <p className="modal-description">{product.description}</p>
-          <p className="modal-price">{product.price}</p>
+          <p className="modal-price">{parseFloat(product.unit_price)}</p>
         </div>
       </div>
     </div>

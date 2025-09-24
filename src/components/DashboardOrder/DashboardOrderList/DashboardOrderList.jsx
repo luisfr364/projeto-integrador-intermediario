@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import OrderListCard from './OrderListCard/OrderListCard';
+import OrderListCard from './OrderListCard/OrderListCard.jsx';
+import styles from './DashboardOrderList.module.css';
 
 function DashboardOrderList() {
   const [orders, setOrders] = useState([]);
@@ -21,12 +22,14 @@ function DashboardOrderList() {
       }
     }
 
-    return fetchOrders();
+    fetchOrders();
   }, []);
 
   return (
-    orders &&
-    orders.map((order) => <OrderListCard key={order.id} order={order} />)
+    <div className={styles.wrapper}>
+      {orders &&
+        orders.map((order) => <OrderListCard key={order.id} order={order} />)}
+    </div>
   );
 }
 

@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import './Login.css';
+import styles from './Login.module.css';
 
 function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    document.title = 'Login - AromaUP';
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('Submitting', { email, password });
     const response = await fetch(
-      'https://render.com/docs/web-services#port-binding/login',
+      'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/auth/login',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       }
     );
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       navigate('/dashboard');
     } else {
       console.error('Login failed');
@@ -31,48 +37,53 @@ function Login() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-box login">
-        <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
-          <div className="input-box">
-            <FaUser className="icon" />
-            <input
-              type="email"
-              placeholder=" "
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <label>Email</label>
-          </div>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <div className={styles.imageSection}></div>
+        <div className={styles.formSection}>
+          <div className={styles.formBox}>
+            <form onSubmit={handleSubmit}>
+              <h1 className={styles.title}>AromaUp</h1>
+              <div className={styles.inputBox}>
+                <FaUser className={styles.icon} />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
 
-          <div className="input-box">
-            <FaLock className="icon" />
-            <input
-              type="password"
-              placeholder=" "
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label>Password</label>
-          </div>
+              <div className={styles.inputBox}>
+                <FaLock className={styles.icon} />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
 
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" />
-              Lembre de mim
-            </label>
-          </div>
+              <div className={styles.rememberForgot}>
+                <label>
+                  <input type="checkbox" />
+                  Lembre de mim
+                </label>
+              </div>
 
-          <button className="btn">Login</button>
+              <button type="submit" className={styles.btn}>
+                Login
+              </button>
 
-          <div className="login-register">
-            <p>
-              Não tem conta ?{' '}
-              <a href="#" className="register-link">
-                Registrar
-              </a>
-            </p>
+              <div className={styles.loginRegister}>
+                <p>
+                  Não tem conta ?{' '}
+                  <a href="#" className="register-link">
+                    Registrar
+                  </a>
+                </p>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

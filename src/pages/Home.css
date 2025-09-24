@@ -3,49 +3,51 @@
   flex-direction: column;
   height: 100svh;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: var(--light-grey);
   overflow: hidden;
 }
 
 .home-container > div:first-child {
   flex: 1;
   min-height: 0;
-  padding: 1rem 1rem 0 1rem; 
+  padding: 1rem 1rem 0 1rem;
   box-sizing: border-box;
 }
-
 
 .home-content {
   padding: 1rem 2rem;
   text-align: center;
-  background-color:  #f4f4f4;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.05); /
+  background-color: var(--white);
+  box-shadow: 0 -4px 10px var(--shadow);
 }
 
 .home-content h1 {
   font-size: 1.8rem;
   margin: 0;
+  color: var(--dark-grey);
 }
 
 .home-content p {
   font-size: 1rem;
   margin: 0.25rem 0 1rem 0;
+  color: var(--secondary-color);
 }
 
 .cta-section {
-  display: block; 
+  display: block;
 }
 
 .cta-section h2 {
   font-size: 1.3rem;
   margin: 0 0 0.8rem 0;
+  color: var(--dark-grey);
 }
 
 .cta-button {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #333;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white);
   text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
@@ -53,5 +55,5 @@
 }
 
 .cta-button:hover {
-  background-color: #555;
+  background-color: #0056b3;
 }

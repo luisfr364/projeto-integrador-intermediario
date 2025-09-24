@@ -1,13 +1,13 @@
 .listaContainer {
   width: 530px;
-  height: 380px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
 
-  padding: 0.1em;
+  padding: 0.2em;
   position: absolute;
   right: -1%;
 
@@ -21,6 +21,7 @@
 .lista {
   height: 100%;
   width: 100%;
+  padding: 0.5em 0em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,12 +48,12 @@
 
 .anchorToCheckout {
   padding: 0.8em 1.5em;
-  background-color: #00c04aea;
+  background-color: #007bff;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
-  color: black;
-  font-weight: 600;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
   font-size: 1.1rem;
 }
 

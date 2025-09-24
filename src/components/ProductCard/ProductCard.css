@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  background-color: rgb(230, 230, 230);
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -10,35 +10,33 @@
   border-radius: 12px;
   overflow: hidden;
   flex: 1 1 300px; /* para crescer em grids responsivos */
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s ease;
 }
 
 .card__image {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--medium-grey);
 }
 
 .card__infos {
   padding: 16px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--medium-grey);
   text-align: left;
 }
 
 .card__price {
   font-size: 20px;
   font-weight: 600;
-  color: #000000;
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #000000;
+  color: var(--primary-color);
   margin-bottom: 10px;
 }
 
 .card__description {
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--secondary-color);
   line-height: 1.5;
   font-weight: 500;
 }
@@ -46,15 +44,7 @@
 .card__title {
   font-size: 16px;
   font-weight: 500;
-  color: #222;
-  margin-bottom: 6px;
-  text-align: left;
-  text-transform: capitalize;
-  line-height: 1.2;
-  letter-spacing: 0.3px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #222;
+  color: var(--dark-grey);
   margin-bottom: 6px;
   text-align: left;
   text-transform: capitalize;
@@ -76,36 +66,18 @@
   width: 45px;
   height: 45px;
   margin: 12px 15px;
-  color: blue;
+  color: var(--primary-color);
   display: none;
   align-items: center;
   justify-content: center;
   border: none;
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--white);
   font-size: 1.5rem;
   cursor: pointer;
-}
-
-.button__add-cart {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 45px;
-  height: 45px;
-  margin: 12px 15px;
-  color: blue;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-size: 1.5rem;
-  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .product-card:hover .button__add-cart {
-  display: flex;
   display: flex;
 }
