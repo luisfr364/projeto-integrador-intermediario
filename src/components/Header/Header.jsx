@@ -5,15 +5,18 @@ import { body } from 'framer-motion/client';
 
 function Header() {
   return (
-    <div className="header">
-      <h2 className="logo">Logo</h2>
-      <nav className="navigation">
-        <Link to="/">Home</Link>
-        <Link to="/produtos">Produtos</Link>
-        <CarrinhoBtn />
-        <Link to="/login" className="btnLogin">Login</Link>
-      </nav>
-    </div>
+    <header className="header">
+      <div className="header-content">
+        <Link to="/" className="logo">
+          <h2>AromaUP</h2>
+        </Link>
+        <nav className="navigation">
+          <Link to="/">Home</Link>
+          <Link to="/produtos">Produtos</Link>
+          <Link to="/login" className="btn-login">Login</Link>
+        </nav>
+      </div>
+    </header>
   );
 }
 

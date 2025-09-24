@@ -1,60 +1,84 @@
-import React from 'react';
-import { FaUser, FaLock } from 'react-icons/fa';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './login.css';
 
-function login() {
-  const [username, setUsername] = useState('');
+function Login() {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('Conta criada com sucesso !');
+    alert('Login realizado com sucesso!');
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-box login">
-        <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
-          <div className="input-box">
-            <FaUser className="icon" />
-            <input
-              type="email"
-              placeholder=' '
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <label>Email</label>
-          </div>
+    <div className="login-container">
+      <div className="login-background">
+        <div className="login-overlay"></div>
+      </div>
+      
+      <div className="login-wrapper">
+        <div className="login-form-box">
+          <form onSubmit={handleSubmit}>
+            <div className="login-header">
+              <h1>Bem-vindo de volta</h1>
+              <p>Entre na sua conta para continuar</p>
+            </div>
 
-          <div className="input-box">
-            <FaLock className="icon" />
-            <input
-              type="password"
-              placeholder=' '
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label>Password</label>
-          </div>
+            <div className="input-group">
+              <div className="input-icon">👤</div>
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" />
-              Lembre de mim
-            </label>
-          </div>
+            <div className="input-group">
+              <div className="input-icon">🔒</div>
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
 
-          <button className='btn'>Login</button>
+            <div className="form-options">
+              <label className="remember-me">
+                <input type="checkbox" />
+                <span>Lembrar de mim</span>
+              </label>
+              <a href="#" className="forgot-password">Esqueceu a senha?</a>
+            </div>
 
-          <div className="login-register">
-            <p>
-              Não tem conta ? <a href="#" className='register-link'>Registrar</a>
-            </p>
-          </div>
-        </form>
+            <button type="submit" className="login-btn">Entrar</button>
+
+            <div className="register-link">
+              <p>
+                Não tem uma conta? <a href="#">Criar conta</a>
+              </p>
+            </div>
+
+            <div className="back-home">
+              <Link to="/" className="back-link">← Voltar para Home</Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
 
-export default login;
+export default Login;

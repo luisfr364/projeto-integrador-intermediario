@@ -1,79 +1,102 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 100px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 99;
 }
 
-/* Links normais */
+.logo {
+  text-decoration: none;
+}
+
+.logo h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 600;
+  background: linear-gradient(45deg, #fff, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.logo:hover h2 {
+  transform: scale(1.05);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 .navigation a {
   position: relative;
   font-size: 1.1em;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 40px;
-  transition: color 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .navigation a:hover {
-  color: #8b8b8b; 
+  color: #d4af37;
+  transform: translateY(-2px);
 }
 
-/* Underline só nos links comuns */
-.navigation a:not(.btnLogin)::after {
+.navigation a:not(.btn-login)::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: -6px;
   width: 100%;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 5px;
+  height: 2px;
+  background: linear-gradient(45deg, #d4af37, #fff);
+  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s ease;
 }
 
-.navigation a:not(.btnLogin):hover::after {
+.navigation a:not(.btn-login):hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-/* Estilo do botão login */
-.navigation .btnLogin {
-  display: inline-flex;  
+.btn-login {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 50px;
-  border: 2px solid white;
-  border-radius: 6px;
-  font-size: 1.1em;
-  color: white;
-  font-weight: 500;
-  margin-left: 40px;
+  padding: 12px 24px;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #d4af37 !important;
+  font-weight: 600;
   cursor: pointer;
   background: transparent;
   transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.navigation .btnLogin:hover {
-  background: white;
-  color: black;
+.btn-login:hover {
+  background: linear-gradient(45deg, #d4af37, #f4e06d);
+  color: #000 !important;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
 }
