@@ -11,7 +11,10 @@ function DashboardProductList() {
       try {
         //TODO: implement the endpoint in the backend
         // Replace with your actual API endpoint
-        const response = await fetch('YOUR_API_ENDPOINT/products');
+        const response = await fetch(
+          'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products/productsselling',
+          { method: 'GET', credentials: 'include' }
+        );
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }

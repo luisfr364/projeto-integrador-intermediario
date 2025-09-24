@@ -1,5 +1,11 @@
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import {
+  FiPackage,
+  FiShoppingCart,
+  FiDollarSign,
+  FiSettings,
+} from 'react-icons/fi';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
@@ -19,17 +25,20 @@ const Dashboard = () => {
           <ul className={styles.nav}>
             <li className={styles.navItem}>
               <Link to="products" className={getLinkClassName('products')}>
-                My Products
+                <FiPackage />
+                <span>My Products</span>
               </Link>
             </li>
             <li className={styles.navItem}>
               <Link to="orders" className={getLinkClassName('pedidos')}>
-                Pedidos
+                <FiShoppingCart />
+                <span>Pedidos</span>
               </Link>
             </li>
             <li className={styles.navItem}>
               <Link to="vendas" className={getLinkClassName('vendas')}>
-                Vendas
+                <FiDollarSign />
+                <span>Vendas</span>
               </Link>
             </li>
             <li className={styles.navItem}>
@@ -37,7 +46,8 @@ const Dashboard = () => {
                 to="configuracoes"
                 className={getLinkClassName('configuracoes')}
               >
-                Configurações da Conta
+                <FiSettings />
+                <span>Configurações da Conta</span>
               </Link>
             </li>
           </ul>
