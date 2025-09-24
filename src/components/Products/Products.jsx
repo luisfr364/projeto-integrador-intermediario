@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styles from './Products.module.css';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductModal from '../ProductModal/ProductModal';
 
 function Products() {
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [carrinhoOpen, setCarrinhoOpen] = useState(false);
@@ -20,8 +22,11 @@ function Products() {
 
   useEffect(() => {
     async function fetchProducts() {
+      const searchCategory = searchParams.get('category');
       const response = await fetch(
-        'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products',
+        `https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products${
+          searchCategory ? `?category=${searchCategory}` : ''
+        }`,
         {
           method: 'GET',
           headers: {
@@ -34,7 +39,7 @@ function Products() {
       console.log(data);
     }
     fetchProducts();
-  }, []);
+  }, [searchParams]);
 
   return (
     <section className={styles.products + ' container'}>

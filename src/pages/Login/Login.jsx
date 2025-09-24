@@ -76,7 +76,7 @@ function Login() {
               <div className={styles.loginRegister}>
                 <p>
                   Não tem conta ?{' '}
-                  <a href="#" className="register-link">
+                  <a onClick={() => navigate('/register')} href="#!">
                     Registrar
                   </a>
                 </p>

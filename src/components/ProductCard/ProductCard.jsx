@@ -26,7 +26,7 @@ function ProductCard({ data, onClick, handleCarrinhoClick }) {
       onMouseEnter={() => setShowBtn(true)} //Exibe o botão ao passar o mouse
       onMouseLeave={() => setShowBtn(false)} //Esconde o botão ao retirar o mouse
     >
-      <img src={thumbnail} className={styles.cardImage} />
+      <img src={data.image_url} className={styles.cardImage} />
       <AddNoCarrinhoBtn
         showBtn={showBtn}
         produtoNome={data.title}
@@ -37,9 +37,9 @@ function ProductCard({ data, onClick, handleCarrinhoClick }) {
       />
 
       <div className={styles.cardInfos}>
-        <h2 className={styles.cardTitle}>{title}</h2>
-        <h2 className={styles.cardPrice}>{price}</h2>
-        <h3 className={styles.cardDescription}>{description}</h3>
+        <h2 className={styles.cardTitle}>{data.title}</h2>
+        <h2 className={styles.cardPrice}>{formatPrice(data.unit_price)}</h2>
+        <h3 className={styles.cardDescription}>{data.description}</h3>
       </div>
     </section>
   );

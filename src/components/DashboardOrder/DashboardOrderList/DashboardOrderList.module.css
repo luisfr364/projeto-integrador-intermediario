@@ -1,5 +1,6 @@
 .wrapper {
   height: 100%;
   width: 100%;
-  border: 2px solid var(--medium-grey);
+  border: 8px solid var(--medium-grey);
+  background-color: aquamarine;
 }

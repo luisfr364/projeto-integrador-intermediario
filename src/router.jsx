@@ -6,11 +6,12 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login/Login.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import DashboardOrderList from './components/DashboardOrder/DashboardOrderList/DashboardOrderList.jsx';
+import Register from './pages/Register/Register.jsx';
 
 let router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <App />,
   },
   {
     path: '/dashboard',
@@ -33,6 +34,10 @@ let router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
   },
 ]);
 

@@ -24,7 +24,7 @@ function ProductModal({ product, onClose }) {
         <button className={styles.closeButton} onClick={handleClose}>
           ×
         </button>
-        <img src={product.thumbnail} alt={product.title} />
+        <img src={product.image_url} alt={product.title} />
         <div className={styles.info}>
           <h2 className={styles.modalTitle}>{product.title}</h2>
           <p className={styles.modalDescription}>{product.description}</p>

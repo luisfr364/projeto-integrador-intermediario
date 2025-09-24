@@ -18,6 +18,9 @@
 
 .nav {
   list-style: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
   padding: 0;
   margin: 0;
 }

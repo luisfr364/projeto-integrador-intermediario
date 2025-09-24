@@ -1,5 +1,5 @@
-import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
-import styles from "./Footer.module.css";
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
@@ -16,13 +16,25 @@ export default function Footer() {
 
         {/* Redes sociais */}
         <div className={styles.social}>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram />
           </a>
-          <a href="https://wa.me/5585999999999" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.me/5585999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaWhatsapp />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebook />
           </a>
         </div>
@@ -30,7 +42,10 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className={styles.copyright}>
-        <p>© {new Date().getFullYear()} AromaUP — O cheiro do futuro está em nossas mãos.</p>
+        <p>
+          © {new Date().getFullYear()} AromaUP — O cheiro do futuro está em
+          nossas mãos.
+        </p>
       </div>
     </footer>
   );

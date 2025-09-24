@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import '../Header/header.css';
+import styles from './Header.module.css';
 import CarrinhoBtn from '../CarrinhoBtn/CarrinhoBtn';
 import LoginBtn from '../LoginBtn/LoginBtn';
 
-function Header() {
+function Header({ showCarrinho = true }) {
   return (
     <header className={styles.header}>
       <div className="container">
@@ -24,10 +24,10 @@ function Header() {
                 <Link to="/produtos">Produtos</Link>
               </li>
               <li>
-                <Link to="/produtos">Masculino</Link>
+                <Link to="/produtos?category=masculinos">Masculino</Link>
               </li>
               <li>
-                <Link to="/produtos">Feminino</Link>
+                <Link to="/produtos?category=femininos">Feminino</Link>
               </li>
             </ul>
           </nav>
