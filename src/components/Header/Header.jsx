@@ -10,7 +10,7 @@ function Header({ showCarrinho = true }) {
         <div className={styles.headerContent}>
           <Link to="/" className="logo">
             <img
-              src="/images/logo.png"
+              src="/logo.png"
               className={styles.logoImg}
               alt="Logo da loja"
             />
