@@ -67,7 +67,7 @@ function DashboardProductList() {
     <div className={styles.productListContainer}>
       <h2 className={styles.title}>My Products</h2>
       {products.length === 0 ? (
-        <p>You have no products listed.</p>
+        <p>Não há produtos listados</p>
       ) : (
         <table className={styles.productTable}>
           <thead>
@@ -80,33 +80,34 @@ function DashboardProductList() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <img
-                    src={product.image_url}
-                    alt={product.title}
-                    className={styles.productImage}
-                  />
-                </td>
-                <td>{product.title}</td>
-                <td>{product.unit_price}</td>
-                <td>{product.category}</td>
-                <td>
-                  <button
-                    className={styles.actionButton}
-                    onClick={() => handleEdit(product)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className={`${styles.actionButton} ${styles.deleteButton}`}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {products &&
+              products.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    <img
+                      src={product.image_url}
+                      alt={product.title}
+                      className={styles.productImage}
+                    />
+                  </td>
+                  <td>{product.title}</td>
+                  <td>{product.unit_price}</td>
+                  <td>{product.category}</td>
+                  <td>
+                    <button
+                      className={styles.actionButton}
+                      onClick={() => handleEdit(product)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className={`${styles.actionButton} ${styles.deleteButton}`}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       )}
