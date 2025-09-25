@@ -24,11 +24,16 @@ function DashboardProductList() {
           throw new Error('Erro ao carregar produtos :(');
         }
         const responseJSON = await response.json();
-        const productsData = Array.isArray(responseJSON?.data)
-          ? responseJSON.data
-          : [];
+        let productsData = [];
 
-        if (!Array.isArray(responseJSON?.data)) {
+        if (Array.isArray(responseJSON?.data)) {
+          productsData = responseJSON.data;
+        } else if (
+          responseJSON?.data?.nodes &&
+          Array.isArray(responseJSON.data.nodes)
+        ) {
+          productsData = responseJSON.data.nodes;
+        } else {
           console.warn(
             'Expected an array of products but received:',
             responseJSON?.data
@@ -58,11 +63,19 @@ function DashboardProductList() {
     // Here you will make your API call to update the product
     console.log('Saving product:', productId, updatedData);
     // For now, just update the state
-    setProducts((prevProducts) =>
-      prevProducts.map((p) =>
+    setProducts((prevProducts) => {
+      if (!Array.isArray(prevProducts)) {
+        console.warn(
+          'Products state is not an array; skipping local update.',
+          prevProducts
+        );
+        return prevProducts;
+      }
+
+      return prevProducts.map((p) =>
         p.id === productId ? { ...p, ...updatedData } : p
-      )
-    );
+      );
+    });
     handleCloseModal();
   };
 
@@ -74,10 +87,12 @@ function DashboardProductList() {
     return <div className={styles.error}>Error: {error}</div>;
   }
 
+  const safeProducts = Array.isArray(products) ? products : [];
+
   return (
     <div className={styles.productListContainer}>
       <h2 className={styles.title}>Meus produtos</h2>
-      {!Array.isArray(products) || products.length === 0 ? (
+      {safeProducts.length === 0 ? (
         <p>Não há produtos listados</p>
       ) : (
         <table className={styles.productTable}>
@@ -91,34 +106,33 @@ function DashboardProductList() {
             </tr>
           </thead>
           <tbody>
-            {Array.isArray(products) &&
-              products.map((product) => (
-                <tr key={product.id}>
-                  <td>
-                    <img
-                      src={product.image_url}
-                      alt={product.title}
-                      className={styles.productImage}
-                    />
-                  </td>
-                  <td>{product.title}</td>
-                  <td>{product.unit_price}</td>
-                  <td>{product.category}</td>
-                  <td>
-                    <button
-                      className={styles.actionButton}
-                      onClick={() => handleEdit(product)}
-                    >
-                      Editar
-                    </button>
-                    <button
-                      className={`${styles.actionButton} ${styles.deleteButton}`}
-                    >
-                      Deletar
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {safeProducts.map((product) => (
+              <tr key={product.id}>
+                <td>
+                  <img
+                    src={product.image_url}
+                    alt={product.title}
+                    className={styles.productImage}
+                  />
+                </td>
+                <td>{product.title}</td>
+                <td>{product.unit_price}</td>
+                <td>{product.category}</td>
+                <td>
+                  <button
+                    className={styles.actionButton}
+                    onClick={() => handleEdit(product)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className={`${styles.actionButton} ${styles.deleteButton}`}
+                  >
+                    Deletar
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       )}

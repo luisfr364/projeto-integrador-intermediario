@@ -18,16 +18,13 @@ function Register() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(
-      `${apiUrl}/auth/register`, // Replace with your API endpoint
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, password, phone }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, password, phone }),
+    });
 
     if (response.ok) {
       navigate('/login');
