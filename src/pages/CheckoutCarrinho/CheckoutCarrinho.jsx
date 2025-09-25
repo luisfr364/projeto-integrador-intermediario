@@ -5,6 +5,7 @@ import CardCheckoutCarrinho from '../../components/CardCheckoutCarrinho/CardChec
 import currencyToFloat from '../../util/currencyToFloat';
 import Header from '../../components/Header/Header.jsx';
 import PaymentForm from './PaymentForm';
+import { apiUrl } from '../../util/urls.js';
 
 function CheckoutCarrinho() {
   const {
@@ -20,6 +21,29 @@ function CheckoutCarrinho() {
 
   const handlePaymentSubmit = async (paymentInfo) => {
     console.log(produtos);
+    const response = await fetch(`${apiUrl}/purchase`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify({
+        products: produtos.map((p) => ({
+          productId: p.produtoId,
+          quantity: p.quantidade,
+        })),
+        precoFrete,
+        shippingAddress: cep,
+        paymentInfo: paymentInfo,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('Erro ao finalizar a compra');
+      alert('Erro ao finalizar a compra');
+      return;
+    }
+
     console.log('Finalizing order with payment info:', paymentInfo);
     alert('Compra finalizada com sucesso!');
   };
