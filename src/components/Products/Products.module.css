@@ -1,4 +1,5 @@
 .products {
+  margin-top: 30px;
   padding: 120px 20px 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

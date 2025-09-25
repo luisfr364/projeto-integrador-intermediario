@@ -3,6 +3,7 @@ import { FaUser, FaLock, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { useNavigate, Link } from 'react-router-dom';
 
 import styles from './Register.module.css';
+import { apiUrl } from '../../util/urls';
 
 function Register() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await fetch(
-      'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/auth/register', // Replace with your API endpoint
+      `${apiUrl}/auth/register`, // Replace with your API endpoint
       {
         method: 'POST',
         headers: {

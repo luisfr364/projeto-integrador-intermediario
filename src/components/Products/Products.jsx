@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import styles from './Products.module.css';
 import ProductCard from '../ProductCard/ProductCard';
 import ProductModal from '../ProductModal/ProductModal';
+import { apiUrl } from '../../util/urls';
 
 function Products() {
   const [searchParams] = useSearchParams();
@@ -24,7 +25,7 @@ function Products() {
     async function fetchProducts() {
       const searchCategory = searchParams.get('category');
       const response = await fetch(
-        `https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products${
+        `${apiUrl}/products${
           searchCategory ? `?category=${searchCategory}` : ''
         }`,
         {

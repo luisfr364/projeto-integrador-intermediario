@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import styles from './DashboardProductList.module.css';
+import { apiUrl } from '../../util/urls';
+import EditProductModal from './EditProductModal';
 
 function DashboardProductList() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editingProduct, setEditingProduct] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        //TODO: implement the endpoint in the backend
-        // Replace with your actual API endpoint
-        const response = await fetch(
-          'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/products/productsselling',
-          { method: 'GET', credentials: 'include' }
-        );
+        const response = await fetch(`${apiUrl}/products/productsselling`, {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
         if (!response.ok) {
-          throw new Error('Failed to fetch products');
+          throw new Error('Erro ao carregar produtos :(');
         }
-        const data = await response.json();
-        setProducts(data);
+        const responseJSON = await response.json();
+        setProducts(responseJSON.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -29,6 +33,26 @@ function DashboardProductList() {
 
     fetchProducts();
   }, []);
+
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+  };
+
+  const handleCloseModal = () => {
+    setEditingProduct(null);
+  };
+
+  const handleSave = (productId, updatedData) => {
+    // Here you will make your API call to update the product
+    console.log('Saving product:', productId, updatedData);
+    // For now, just update the state
+    setProducts((prevProducts) =>
+      prevProducts.map((p) =>
+        p.id === productId ? { ...p, ...updatedData } : p
+      )
+    );
+    handleCloseModal();
+  };
 
   if (loading) {
     return <div className={styles.loading}>Loading products...</div>;
@@ -47,11 +71,11 @@ function DashboardProductList() {
         <table className={styles.productTable}>
           <thead>
             <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Actions</th>
+              <th></th>
+              <th>Nome</th>
+              <th>Preço</th>
+              <th>Categoria</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -59,16 +83,21 @@ function DashboardProductList() {
               <tr key={product.id}>
                 <td>
                   <img
-                    src={product.thumbnail}
+                    src={product.image_url}
                     alt={product.title}
                     className={styles.productImage}
                   />
                 </td>
                 <td>{product.title}</td>
-                <td>{product.price}</td>
+                <td>{product.unit_price}</td>
                 <td>{product.category}</td>
                 <td>
-                  <button className={styles.actionButton}>Edit</button>
+                  <button
+                    className={styles.actionButton}
+                    onClick={() => handleEdit(product)}
+                  >
+                    Edit
+                  </button>
                   <button
                     className={`${styles.actionButton} ${styles.deleteButton}`}
                   >
@@ -80,6 +109,11 @@ function DashboardProductList() {
           </tbody>
         </table>
       )}
+      <EditProductModal
+        product={editingProduct}
+        onClose={handleCloseModal}
+        onSave={handleSave}
+      />
     </div>
   );
 }

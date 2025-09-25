@@ -3,6 +3,7 @@ import { FaUser, FaLock } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import styles from './Login.module.css';
+import { apiUrl } from '../../util/urls';
 
 function Login() {
   const navigate = useNavigate();
@@ -16,16 +17,14 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Submitting', { email, password });
-    const response = await fetch(
-      'https://backend-projeto-integrador-2-perfumaria.onrender.com/api/v1/auth/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      }
-    );
+    const response = await fetch(`${apiUrl}/auth/login`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
     if (response.ok) {
       const data = await response.json();
