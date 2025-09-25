@@ -14,7 +14,7 @@ function Login() {
     document.title = 'Login - AromaUP';
     async function checkAuth() {
       const response = await fetch(`${apiUrl}/auth/validate`, {
-        method: 'GET',
+        method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
