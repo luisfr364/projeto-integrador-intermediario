@@ -6,11 +6,11 @@
 }
 
 .dashboard {
+  margin-top: 3em;
   display: flex;
   flex-grow: 1;
   padding: 2em;
   font-family: sans-serif;
-  font-size: 1.3rem;
 }
 
 .sidebar {
