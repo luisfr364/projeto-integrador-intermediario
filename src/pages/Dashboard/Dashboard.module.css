@@ -1,5 +1,6 @@
 .dashboard {
   display: flex;
+  margin-top: 3em;
   min-height: 100vh;
   min-width: 100svw;
   padding: 2em;
