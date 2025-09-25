@@ -16,17 +16,21 @@ function DashboardOrderList() {
       });
       const data = await response.json();
       if (response.ok) {
-        setOrders(data.data);
+        const ordersData = Array.isArray(data.data) ? data.data : [];
+        setOrders(ordersData);
       }
     }
 
     fetchOrders();
   }, []);
 
+  const safeOrders = Array.isArray(orders) ? orders : [];
+
   return (
     <div className={styles.wrapper}>
-      {orders &&
-        orders.map((order) => <OrderListCard key={order.id} order={order} />)}
+      {safeOrders.map((order) => (
+        <OrderListCard key={order.id} order={order} />
+      ))}
     </div>
   );
 }

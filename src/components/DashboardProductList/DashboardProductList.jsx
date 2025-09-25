@@ -12,6 +12,12 @@ function DashboardProductList() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        console.log(
+          'Fetching products from:',
+          `${apiUrl}/products/productsselling`
+        );
+        console.log('Using credentials: include');
+
         const response = await fetch(`${apiUrl}/products/productsselling`, {
           method: 'GET',
           credentials: 'include',
@@ -19,11 +25,25 @@ function DashboardProductList() {
             'Content-Type': 'application/json',
           },
         });
-        console.log('Fetched products response:', response);
+
+        console.log('Fetched products response status:', response.status);
+        console.log(
+          'Fetched products response headers:',
+          Object.fromEntries(response.headers.entries())
+        );
+
         if (!response.ok) {
-          throw new Error('Erro ao carregar produtos :(');
+          if (response.status === 401) {
+            throw new Error('Não autorizado. Faça login novamente.');
+          } else if (response.status === 403) {
+            throw new Error('Acesso negado.');
+          } else {
+            throw new Error(`Erro ao carregar produtos: ${response.status}`);
+          }
         }
+
         const responseJSON = await response.json();
+        console.log('Raw API response:', responseJSON);
         let productsData = [];
 
         if (Array.isArray(responseJSON?.data)) {
@@ -59,8 +79,10 @@ function DashboardProductList() {
           );
         }
 
+        console.log('Final products data:', productsData);
         setProducts(productsData);
       } catch (err) {
+        console.error('Error fetching products:', err);
         setError(err.message);
       } finally {
         setLoading(false);
