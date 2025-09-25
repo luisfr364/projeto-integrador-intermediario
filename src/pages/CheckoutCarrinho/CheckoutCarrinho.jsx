@@ -109,20 +109,3 @@ function CheckoutCarrinho() {
 }
 
 export default CheckoutCarrinho;
-            >
-              Ir para pagamentos
-            </button>
-            <button
-              className={`${styles.checkoutBtn} ${styles.secondary}`}
-              disabled
-            >
-              Cancelar pedido
-            </button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-export default CheckoutCarrinho;
