@@ -16,7 +16,7 @@ const PaymentForm = ({ onPaymentSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Placeholder for your API call
+    // Placeholder
     console.log('Submitting payment info:', cardInfo);
     onPaymentSubmit(cardInfo);
   };

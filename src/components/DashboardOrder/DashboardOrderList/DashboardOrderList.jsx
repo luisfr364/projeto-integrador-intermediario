@@ -25,6 +25,7 @@ function DashboardOrderList() {
         }
 
         const data = await response.json();
+        console.log(data);
         setOrders(data.data || []);
       } catch (err) {
         setError(err.message);

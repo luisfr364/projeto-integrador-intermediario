@@ -203,7 +203,7 @@ function DashboardProductList() {
                     onClick={async () => {
                       if (
                         window.confirm(
-                          'Tem certeza que deseja deletar este produto?'
+                          'Tem certeza que deseja desativar este produto?'
                         )
                       ) {
                         await handleProductDelete(product.id);
