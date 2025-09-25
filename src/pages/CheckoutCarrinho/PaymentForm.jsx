@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './PaymentForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const PaymentForm = ({ onPaymentSubmit }) => {
   const [cardInfo, setCardInfo] = useState({
@@ -8,6 +9,30 @@ const PaymentForm = ({ onPaymentSubmit }) => {
     expiry: '',
     cvv: '',
   });
+
+  const navigate = useNavigate();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder for actual auth state
+  useEffect(() => {
+    async function checkAuth() {
+      const response = await fetch(`http://localhost:3001/auth/validate`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        setIsLoggedIn(true);
+      } else {
+        alert('Por favor, faça login para continuar com o pagamento.');
+        navigate('/login');
+        setIsLoggedIn(false);
+      }
+    }
+
+    checkAuth();
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

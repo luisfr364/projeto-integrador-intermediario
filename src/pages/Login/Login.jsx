@@ -12,7 +12,20 @@ function Login() {
 
   useEffect(() => {
     document.title = 'Login - AromaUP';
-  }, []);
+    async function checkAuth() {
+      const response = await fetch(`${apiUrl}/auth/validate`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        navigate('/dashboard');
+      }
+    }
+    checkAuth();
+  }, [navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
