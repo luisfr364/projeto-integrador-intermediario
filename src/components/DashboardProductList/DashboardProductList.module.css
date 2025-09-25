@@ -70,3 +70,25 @@
 .deleteButton:hover {
   background-color: #c82333;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.createButton {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.createButton:hover {
+  background-color: #218838;
+}

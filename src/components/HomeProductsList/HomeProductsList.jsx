@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './HomeProductsList.module.css';
 import { apiUrl } from '../../util/urls';
-import CreateProductModal from './CreateProductModal';
 
 const HomeProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +14,6 @@ const HomeProductsList = () => {
     category: '',
     priceSort: '',
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const limit = 20;
 
@@ -59,10 +57,6 @@ const HomeProductsList = () => {
     setPage(newPage);
   };
 
-  const handleProductCreated = () => {
-    fetchProducts(); // Re-fetch products after a new one is created
-  };
-
   if (loading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
 
@@ -70,20 +64,7 @@ const HomeProductsList = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>Nossos Produtos</h1>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className={styles.createButton}
-        >
-          Cadastrar Novo Produto
-        </button>
       </div>
-
-      {isModalOpen && (
-        <CreateProductModal
-          onClose={() => setIsModalOpen(false)}
-          onProductCreated={handleProductCreated}
-        />
-      )}
 
       <div className={styles.filters}>
         <input

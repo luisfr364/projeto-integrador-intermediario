@@ -8,6 +8,7 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
   const [description, setDescription] = useState('');
   const [unitPrice, setUnitPrice] = useState('');
   const [quantity, setQuantity] = useState('');
+  const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,8 +27,9 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('unit_price', unitPrice);
+    formData.append('unitPrice', unitPrice);
     formData.append('quantity', quantity);
+    formData.append('category', category);
     if (image) {
       formData.append('image', image);
     }
@@ -35,6 +37,7 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
     try {
       const response = await fetch(`${apiUrl}/products`, {
         method: 'POST',
+        credentials: 'include',
         body: formData, // Não precisa de 'Content-Type' header, o browser define automaticamente com FormData
       });
 
@@ -81,6 +84,21 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
               placeholder="Descreva o produto..."
               required
             />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="category">Categoria</label>
+            <select
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Selecione uma categoria
+              </option>
+              <option value="feminino">Feminino</option>
+              <option value="masculino">Masculino</option>
+            </select>
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="unitPrice">Preço Unitário</label>

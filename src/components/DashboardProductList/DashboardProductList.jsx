@@ -2,93 +2,89 @@ import React, { useState, useEffect } from 'react';
 import styles from './DashboardProductList.module.css';
 import { apiUrl } from '../../util/urls';
 import EditProductModal from './EditProductModal';
+import CreateProductModal from './CreateProductModal';
 
 function DashboardProductList() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editingProduct, setEditingProduct] = useState(null);
+  const [isCreateModalOpen, setCreateModalOpen] = useState(false);
+
+  const fetchProducts = async () => {
+    try {
+      console.log(
+        'Fetching products from:',
+        `${apiUrl}/products/productsselling`
+      );
+      console.log('Using credentials: include');
+
+      const response = await fetch(`${apiUrl}/products/productsselling`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Fetched products response status:', response.status);
+      console.log(
+        'Fetched products response headers:',
+        Object.fromEntries(response.headers.entries())
+      );
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Não autorizado. Faça login novamente.');
+        } else if (response.status === 403) {
+          throw new Error('Acesso negado.');
+        } else {
+          throw new Error(`Erro ao carregar produtos: ${response.status}`);
+        }
+      }
+
+      const responseJSON = await response.json();
+      console.log('Raw API response:', responseJSON);
+      let productsData = [];
+
+      if (Array.isArray(responseJSON?.data)) {
+        productsData = responseJSON.data;
+      } else if (
+        responseJSON?.data?.nodes &&
+        Array.isArray(responseJSON.data.nodes)
+      ) {
+        productsData = responseJSON.data.nodes;
+      } else if (typeof responseJSON?.data === 'string') {
+        try {
+          const parsed = JSON.parse(responseJSON.data);
+          if (Array.isArray(parsed)) {
+            productsData = parsed;
+          } else if (parsed && typeof parsed === 'object') {
+            productsData = Object.values(parsed);
+          }
+        } catch (parseError) {
+          console.warn('Failed to parse stringified data payload', parseError);
+        }
+      } else if (responseJSON?.data && typeof responseJSON.data === 'object') {
+        productsData = Object.values(responseJSON.data);
+      } else {
+        console.warn(
+          'Expected an array of products but received:',
+          responseJSON?.data
+        );
+      }
+
+      console.log('Final products data:', productsData);
+      setProducts(productsData);
+    } catch (err) {
+      console.error('Error fetching products:', err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        console.log(
-          'Fetching products from:',
-          `${apiUrl}/products/productsselling`
-        );
-        console.log('Using credentials: include');
-
-        const response = await fetch(`${apiUrl}/products/productsselling`, {
-          method: 'GET',
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        console.log('Fetched products response status:', response.status);
-        console.log(
-          'Fetched products response headers:',
-          Object.fromEntries(response.headers.entries())
-        );
-
-        if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error('Não autorizado. Faça login novamente.');
-          } else if (response.status === 403) {
-            throw new Error('Acesso negado.');
-          } else {
-            throw new Error(`Erro ao carregar produtos: ${response.status}`);
-          }
-        }
-
-        const responseJSON = await response.json();
-        console.log('Raw API response:', responseJSON);
-        let productsData = [];
-
-        if (Array.isArray(responseJSON?.data)) {
-          productsData = responseJSON.data;
-        } else if (
-          responseJSON?.data?.nodes &&
-          Array.isArray(responseJSON.data.nodes)
-        ) {
-          productsData = responseJSON.data.nodes;
-        } else if (typeof responseJSON?.data === 'string') {
-          try {
-            const parsed = JSON.parse(responseJSON.data);
-            if (Array.isArray(parsed)) {
-              productsData = parsed;
-            } else if (parsed && typeof parsed === 'object') {
-              productsData = Object.values(parsed);
-            }
-          } catch (parseError) {
-            console.warn(
-              'Failed to parse stringified data payload',
-              parseError
-            );
-          }
-        } else if (
-          responseJSON?.data &&
-          typeof responseJSON.data === 'object'
-        ) {
-          productsData = Object.values(responseJSON.data);
-        } else {
-          console.warn(
-            'Expected an array of products but received:',
-            responseJSON?.data
-          );
-        }
-
-        console.log('Final products data:', productsData);
-        setProducts(productsData);
-      } catch (err) {
-        console.error('Error fetching products:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchProducts();
   }, []);
 
@@ -98,6 +94,10 @@ function DashboardProductList() {
 
   const handleCloseModal = () => {
     setEditingProduct(null);
+  };
+
+  const handleProductCreated = () => {
+    fetchProducts(); // Re-fetch products after a new one is created
   };
 
   const handleSave = (productId, updatedData) => {
@@ -132,7 +132,15 @@ function DashboardProductList() {
 
   return (
     <div className={styles.productListContainer}>
-      <h2 className={styles.title}>Meus produtos</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Meus produtos</h2>
+        <button
+          onClick={() => setCreateModalOpen(true)}
+          className={styles.createButton}
+        >
+          Cadastrar Novo Produto
+        </button>
+      </div>
       {safeProducts.length === 0 ? (
         <p>Não há produtos listados</p>
       ) : (
@@ -182,6 +190,12 @@ function DashboardProductList() {
         onClose={handleCloseModal}
         onSave={handleSave}
       />
+      {isCreateModalOpen && (
+        <CreateProductModal
+          onClose={() => setCreateModalOpen(false)}
+          onProductCreated={handleProductCreated}
+        />
+      )}
     </div>
   );
 }
