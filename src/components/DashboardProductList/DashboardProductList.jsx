@@ -23,6 +23,7 @@ function DashboardProductList() {
           throw new Error('Erro ao carregar produtos :(');
         }
         const responseJSON = await response.json();
+        console.log('Fetched products:', responseJSON.data);
         setProducts(responseJSON.data);
       } catch (err) {
         setError(err.message);
