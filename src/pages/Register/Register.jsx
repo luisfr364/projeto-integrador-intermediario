@@ -27,6 +27,7 @@ function Register() {
     });
 
     if (response.ok) {
+      alert('Registration successful! Please log in.');
       navigate('/login');
     } else {
       console.error('Registration failed');

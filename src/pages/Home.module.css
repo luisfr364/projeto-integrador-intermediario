@@ -214,7 +214,7 @@ body {
 
 .productCard .price {
   font-weight: bold;
-  color: var(--accent-color);
+  color: black;
   margin-bottom: 10px;
 }
 
