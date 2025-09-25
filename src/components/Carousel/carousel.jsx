@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './carousel.module.css';
 
-import imagem1 from '/images/masculinos/perfume1.png';
-import imagem2 from '/images/masculinos/perfume2.png';
-import imagem3 from '/images/masculinos/perfume3.png';
-
-const images = [imagem1, imagem2, imagem3];
+const images = [
+  'https://res.cloudinary.com/dbk13lmlp/image/upload/v1758166641/projeto_integrador/femininos/b0rdk5tdrlid7pbb9njz.png',
+  'https://res.cloudinary.com/dbk13lmlp/image/upload/v1758166639/projeto_integrador/masculinos/knzzysfa0wykguoea9je.png',
+  'https://res.cloudinary.com/dbk13lmlp/image/upload/v1758166639/projeto_integrador/masculinos/u6aqk4hf6cexst0vaiwr.png',
+];
 const delay = 4000;
 
 function Carousel() {

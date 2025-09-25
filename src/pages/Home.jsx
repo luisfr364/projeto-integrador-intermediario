@@ -4,36 +4,56 @@ import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import { Link } from 'react-router-dom';
 import { useCarrinho } from '../context/CarrinhoContext.jsx';
+import { apiUrl } from '../util/urls.js';
 
 function Home() {
   const { addUmProdutoNoLS } = useCarrinho();
   const [produtos, setProdutos] = useState([]);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch products
-    fetch('/products.json')
-      .then((response) => response.json())
-      .then((data) => setProdutos(data))
-      .catch((error) => console.error('Error fetching products:', error));
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/products`);
+        if (!response.ok) {
+          throw new Error('Erro ao carregar produtos');
+        }
+        const data = await response.json();
+        setProdutos(data.data || []);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   // Sample promo products
   const promoProdutos = produtos.slice(0, 3).map((p) => ({
     ...p,
-    oldPrice: `R$ ${(
-      parseFloat(p.price.replace('R$ ', '').replace(',', '.')) * 1.2
-    )
-      .toFixed(2)
-      .replace('.', ',')}`,
+    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
+    thumbnail: p.image_url,
+    oldPrice: `R$ ${(p.unit_price * 1.2).toFixed(2).replace('.', ',')}`,
     discount: '-17%',
   }));
 
   // Best sellers
-  const bestSellers = produtos.slice(3, 8);
+  const bestSellers = produtos.slice(3, 8).map((p) => ({
+    ...p,
+    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
+    thumbnail: p.image_url,
+  }));
 
   // All products for grid
-  const gridProdutos = produtos.slice(0, 6);
+  const gridProdutos = produtos.slice(0, 6).map((p) => ({
+    ...p,
+    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
+    thumbnail: p.image_url,
+  }));
 
   // Carousel functions
   const nextSlide = useCallback(() => {
@@ -48,11 +68,37 @@ function Home() {
   }, [promoProdutos.length]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
+    if (promoProdutos.length > 0) {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [nextSlide, promoProdutos.length]);
+
+  if (loading) {
+    return (
+      <div className={styles.homeContainer}>
+        <Header />
+        <div className={styles.container}>
+          <div className={styles.loading}>Carregando produtos...</div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={styles.homeContainer}>
+        <Header />
+        <div className={styles.container}>
+          <div className={styles.error}>Erro: {error}</div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.homeContainer}>
