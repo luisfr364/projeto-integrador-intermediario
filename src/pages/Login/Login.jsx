@@ -13,7 +13,7 @@ function Login() {
   useEffect(() => {
     document.title = 'Login - AromaUP';
     async function checkAuth() {
-      const response = await fetch(`${apiUrl}/login/validate`, {
+      const response = await fetch(`${apiUrl}/auth/login/validate`, {
         method: 'POST',
         credentials: 'include',
         headers: {

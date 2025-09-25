@@ -16,7 +16,7 @@ const PaymentForm = ({ onPaymentSubmit }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder for actual auth state
   useEffect(() => {
     async function checkAuth() {
-      const response = await fetch(`${apiUrl}/login/validate`, {
+      const response = await fetch(`${apiUrl}/auth/login/validate`, {
         method: 'POST',
         credentials: 'include',
         headers: {
