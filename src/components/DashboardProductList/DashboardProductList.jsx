@@ -23,8 +23,18 @@ function DashboardProductList() {
           throw new Error('Erro ao carregar produtos :(');
         }
         const responseJSON = await response.json();
-        console.log('Fetched products:', responseJSON.data);
-        setProducts(responseJSON.data);
+        const productsData = Array.isArray(responseJSON?.data)
+          ? responseJSON.data
+          : [];
+
+        if (!Array.isArray(responseJSON?.data)) {
+          console.warn(
+            'Expected an array of products but received:',
+            responseJSON?.data
+          );
+        }
+
+        setProducts(productsData);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -65,8 +75,8 @@ function DashboardProductList() {
 
   return (
     <div className={styles.productListContainer}>
-      <h2 className={styles.title}>My Products</h2>
-      {products.length === 0 ? (
+      <h2 className={styles.title}>Meus produtos</h2>
+      {!Array.isArray(products) || products.length === 0 ? (
         <p>Não há produtos listados</p>
       ) : (
         <table className={styles.productTable}>
@@ -80,7 +90,7 @@ function DashboardProductList() {
             </tr>
           </thead>
           <tbody>
-            {products &&
+            {Array.isArray(products) &&
               products.map((product) => (
                 <tr key={product.id}>
                   <td>
@@ -98,12 +108,12 @@ function DashboardProductList() {
                       className={styles.actionButton}
                       onClick={() => handleEdit(product)}
                     >
-                      Edit
+                      Editar
                     </button>
                     <button
                       className={`${styles.actionButton} ${styles.deleteButton}`}
                     >
-                      Delete
+                      Deletar
                     </button>
                   </td>
                 </tr>
