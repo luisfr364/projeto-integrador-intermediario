@@ -2,24 +2,13 @@ import React from 'react';
 import styles from './OrderListCard.module.css';
 
 function OrderListCard({ order }) {
-  // Format date for better readability
-  const orderDate = new Date(order.date).toLocaleDateString('pt-BR', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
+  const orderDate = new Date(order.date).toLocaleDateString('pt-BR');
 
   const getStatusClass = (status) => {
-    switch (status.toLowerCase()) {
-      case 'entregue':
-        return styles.entregue;
-      case 'pendente':
-        return styles.pendente;
-      case 'cancelado':
-        return styles.cancelado;
-      default:
-        return '';
-    }
+    if (status === 'entregue') return styles.entregue;
+    if (status === 'pendente') return styles.pendente;
+    if (status === 'cancelado') return styles.cancelado;
+    return styles.pendente;
   };
 
   return (
@@ -35,21 +24,11 @@ function OrderListCard({ order }) {
           <strong>Data:</strong> {orderDate}
         </p>
         <p>
-          <strong>Total:</strong>{' '}
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(order.total)}
+          <strong>Total:</strong> R$ {order.total}
         </p>
         {order.user && (
           <p>
             <strong>Comprador:</strong> {order.user.name}
-          </p>
-        )}
-        {order.address && (
-          <p className={styles.address}>
-            <strong>Endereço de Entrega:</strong>
-            {` ${order.address.street_name}, ${order.address.house_number} - ${order.address.city}, ${order.address.state}`}
           </p>
         )}
       </div>

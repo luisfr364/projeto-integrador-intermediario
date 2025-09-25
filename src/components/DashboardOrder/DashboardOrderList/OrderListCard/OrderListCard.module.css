@@ -51,6 +51,10 @@
   background-color: #dc3545;
 }
 
+.processando {
+  background-color: #17a2b8;
+}
+
 .cardBody {
   padding: 16px;
   color: #555;
@@ -79,10 +83,4 @@
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.detailsButton:hover {
-  background-color: #0056b3;
 }

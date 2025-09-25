@@ -26,11 +26,11 @@ const Dashboard = () => {
             <li className={styles.navItem}>
               <Link to="products" className={getLinkClassName('products')}>
                 <FiPackage />
-                <span>My Products</span>
+                <span>Meus Produtos</span>
               </Link>
             </li>
             <li className={styles.navItem}>
-              <Link to="orders" className={getLinkClassName('pedidos')}>
+              <Link to="orders" className={getLinkClassName('orders')}>
                 <FiShoppingCart />
                 <span>Pedidos</span>
               </Link>
