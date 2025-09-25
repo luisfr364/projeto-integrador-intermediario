@@ -19,10 +19,10 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <div className={styles.dashboardPage}>
       <header className={headerStyles.header}>
         <div className="container">
-          <div className={styles.headerContent}>
+          <div className={headerStyles.headerContent}>
             <Link to="/" className="logo">
               <img
                 src="/logo.png"
@@ -73,7 +73,7 @@ const Dashboard = () => {
           <Outlet />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

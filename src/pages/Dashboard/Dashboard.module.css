@@ -1,11 +1,16 @@
+.dashboardPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
 .dashboard {
   display: flex;
-  margin-top: 3em;
-  min-height: 100vh;
-  min-width: 100svw;
+  flex-grow: 1;
   padding: 2em;
   font-family: sans-serif;
-  background-color: #f4f4f4;
+  font-size: 1.3rem;
 }
 
 .sidebar {
