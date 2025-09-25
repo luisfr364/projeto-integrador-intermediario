@@ -24,11 +24,7 @@ function OrderListCard({ order }) {
           <strong>Data:</strong> {orderDate}
         </p>
         <p>
-          <strong>Total:</strong> R${' '}
-          {order.total.toLocaleDateString('pt-BR', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}
+          <strong>Total:</strong> R$ {order.total}
         </p>
         {order.user && (
           <p>
