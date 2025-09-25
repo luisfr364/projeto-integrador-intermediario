@@ -21,7 +21,7 @@ function CheckoutCarrinho() {
 
   const handlePaymentSubmit = async (paymentInfo) => {
     console.log(produtos);
-    const response = await fetch(`${apiUrl}/purchase`, {
+    const response = await fetch(`${apiUrl}/sales/purchase`, {
       headers: {
         'Content-Type': 'application/json',
       },
