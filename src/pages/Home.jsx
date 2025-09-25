@@ -1,80 +1,33 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Header from '../components/Header/Header.jsx';
 import Footer from '../components/Footer/Footer.jsx';
-import { Link } from 'react-router-dom';
 import { useCarrinho } from '../context/CarrinhoContext.jsx';
 import { apiUrl } from '../util/urls.js';
 
 function Home() {
   const { addUmProdutoNoLS } = useCarrinho();
   const [produtos, setProdutos] = useState([]);
-  const [carouselIndex, setCarouselIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
+  // Buscar produtos da API
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/products`);
-        if (!response.ok) {
-          throw new Error('Erro ao carregar produtos');
-        }
-        const data = await response.json();
+    fetch(`${apiUrl}/products`)
+      .then((response) => response.json())
+      .then((data) => {
         setProdutos(data.data || []);
-      } catch (err) {
-        setError(err.message);
-      } finally {
         setLoading(false);
-      }
-    };
-
-    fetchProducts();
+      })
+      .catch((error) => {
+        console.log('Erro:', error);
+        setLoading(false);
+      });
   }, []);
 
-  // Sample promo products
-  const promoProdutos = produtos.slice(0, 3).map((p) => ({
-    ...p,
-    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
-    thumbnail: p.image_url,
-    oldPrice: `R$ ${(p.unit_price * 1.2).toFixed(2).replace('.', ',')}`,
-    discount: '-17%',
-  }));
-
-  // Best sellers
-  const bestSellers = produtos.slice(3, 8).map((p) => ({
-    ...p,
-    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
-    thumbnail: p.image_url,
-  }));
-
-  // All products for grid
-  const gridProdutos = produtos.slice(0, 6).map((p) => ({
-    ...p,
-    price: `R$ ${p.unit_price.toFixed(2).replace('.', ',')}`,
-    thumbnail: p.image_url,
-  }));
-
-  // Carousel functions
-  const nextSlide = useCallback(() => {
-    setCarouselIndex((prevIndex) => (prevIndex + 1) % promoProdutos.length);
-  }, [promoProdutos.length]);
-
-  const prevSlide = useCallback(() => {
-    setCarouselIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + promoProdutos.length) % promoProdutos.length
-    );
-  }, [promoProdutos.length]);
-
-  useEffect(() => {
-    if (promoProdutos.length > 0) {
-      const interval = setInterval(() => {
-        nextSlide();
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [nextSlide, promoProdutos.length]);
+  // Formatar preço
+  const formatPrice = (price) => {
+    return `R$ ${price.toFixed(2).replace('.', ',')}`;
+  };
 
   if (loading) {
     return (
@@ -88,117 +41,37 @@ function Home() {
     );
   }
 
-  if (error) {
-    return (
-      <div className={styles.homeContainer}>
-        <Header />
-        <div className={styles.container}>
-          <div className={styles.error}>Erro: {error}</div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className={styles.homeContainer}>
       <Header />
       <div className={styles.container}>
         <div className={styles.mainContent}>
-          <div className={styles.topSection}>
-            <div className={styles.promoCarousel}>
-              <h2 className={styles.sectionTitle}>Promoções do Dia</h2>
-              <div className={styles.carousel}>
-                <div
-                  className={styles.carouselInner}
-                  style={{ transform: `translateX(-${carouselIndex * 100}%)` }}
-                >
-                  {promoProdutos.map((produto) => (
-                    <div key={produto.id} className={styles.carouselItem}>
-                      <img src={produto.thumbnail} alt={produto.title} />
-                      <h3>{produto.title}</h3>
-                      <div className={styles.price}>
-                        <span className={styles.oldPrice}>
-                          {produto.oldPrice}
-                        </span>
-                        {produto.price}
-                        <span className={styles.discount}>
-                          {produto.discount}
-                        </span>
-                      </div>
-                      <button
-                        className={styles.addToCart}
-                        onClick={() =>
-                          addUmProdutoNoLS(
-                            produto.id,
-                            produto.title,
-                            produto.thumbnail,
-                            produto.price
-                          )
-                        }
-                      >
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  ))}
-                </div>
-                <button
-                  className={`${styles.carouselControl} ${styles.carouselControlPrev}`}
-                  onClick={prevSlide}
-                >
-                  &lt;
-                </button>
-                <button
-                  className={`${styles.carouselControl} ${styles.carouselControlNext}`}
-                  onClick={nextSlide}
-                >
-                  &gt;
-                </button>
-              </div>
-            </div>
-
-            <div className={styles.bestSellers}>
-              <h2 className={styles.sectionTitle}>Mais Vendidos</h2>
-              <div className={styles.bestSellersList}>
-                {bestSellers.map((produto) => (
-                  <div key={produto.id} className={styles.bestSellerItem}>
-                    <img src={produto.thumbnail} alt={produto.title} />
-                    <div className={styles.bestSellerInfo}>
-                      <h4>{produto.title}</h4>
-                      <div className={styles.price}>{produto.price}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
+          {/* Banner promocional */}
           <div className={styles.promoBanner}>
             <h3>Frete Grátis</h3>
             <p>Para todo o Brasil</p>
             <p>Em compras acima de R$ 300,00</p>
-            <img
-              src="/images/masculinos/perfume1.png"
-              alt="Imagem Promocional"
-            />
           </div>
 
+          {/* Lista de produtos */}
           <div className={styles.productsSection}>
             <h2 className={styles.sectionTitle}>Nossos Produtos</h2>
             <div className={styles.productsGrid}>
-              {gridProdutos.map((produto) => (
+              {produtos.map((produto) => (
                 <div key={produto.id} className={styles.productCard}>
-                  <img src={produto.thumbnail} alt={produto.title} />
+                  <img src={produto.image_url} alt={produto.title} />
                   <h4>{produto.title}</h4>
-                  <div className={styles.price}>{produto.price}</div>
+                  <div className={styles.price}>
+                    {formatPrice(produto.unit_price)}
+                  </div>
                   <button
                     className={styles.addToCart}
                     onClick={() =>
                       addUmProdutoNoLS(
                         produto.id,
                         produto.title,
-                        produto.thumbnail,
-                        produto.price
+                        produto.image_url,
+                        formatPrice(produto.unit_price)
                       )
                     }
                   >

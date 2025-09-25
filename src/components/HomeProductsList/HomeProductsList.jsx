@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './HomeProductsList.module.css';
+import { apiUrl } from '../../util/urls';
 
 const HomeProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -28,9 +29,7 @@ const HomeProductsList = () => {
         priceSort: filters.priceSort || undefined,
       }).toString();
 
-      const response = await fetch(
-        `https://render.com/docs/web-services#port-binding/api/v1/products?${queryParams}`
-      );
+      const response = await fetch(`${apiUrl}/products?${queryParams}`);
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }

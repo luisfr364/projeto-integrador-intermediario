@@ -18,8 +18,8 @@ function CheckoutCarrinho() {
   const [precoFrete, setPrecoFrete] = useState(0);
   const [showPayment, setShowPayment] = useState(false);
 
-  const handlePaymentSubmit = (paymentInfo) => {
-    //
+  const handlePaymentSubmit = async (paymentInfo) => {
+    console.log(produtos);
     console.log('Finalizing order with payment info:', paymentInfo);
     alert('Compra finalizada com sucesso!');
   };
