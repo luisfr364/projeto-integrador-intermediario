@@ -19,6 +19,7 @@ function DashboardProductList() {
             'Content-Type': 'application/json',
           },
         });
+        console.log('Fetched products response:', response);
         if (!response.ok) {
           throw new Error('Erro ao carregar produtos :(');
         }
