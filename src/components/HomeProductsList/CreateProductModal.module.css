@@ -1,0 +1,122 @@
+/* Estilo para o fundo escuro do modal */
+.modalOverlay {
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Cor preta com 60% de opacidade */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que o modal fique na frente de tudo */
+}
+
+/* Estilo para o conteúdo do modal */
+.modalContent {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Largura máxima do modal */
+  animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+.modalContent h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Estilo para os grupos de formulário (label + input) */
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #007bff; /* Cor azul ao focar */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para a área de ações do modal (botões) */
+.modalActions {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 10px; /* Espaço entre os botões */
+  margin-top: 20px;
+}
+
+.cancelButton,
+.submitButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.cancelButton {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.submitButton:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* Mensagem de erro */
+.errorMessage {
+  color: #d9534f; /* Cor vermelha para erros */
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Animação de entrada do modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

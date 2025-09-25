@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './HomeProductsList.module.css';
 import { apiUrl } from '../../util/urls';
+import CreateProductModal from './CreateProductModal';
 
 const HomeProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,7 @@ const HomeProductsList = () => {
     category: '',
     priceSort: '',
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const limit = 20;
 
@@ -57,15 +59,36 @@ const HomeProductsList = () => {
     setPage(newPage);
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  const handleProductCreated = () => {
+    fetchProducts(); // Re-fetch products after a new one is created
+  };
+
+  if (loading) return <div>Carregando...</div>;
+  if (error) return <div>Erro: {error}</div>;
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>Nossos Produtos</h1>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className={styles.createButton}
+        >
+          Cadastrar Novo Produto
+        </button>
+      </div>
+
+      {isModalOpen && (
+        <CreateProductModal
+          onClose={() => setIsModalOpen(false)}
+          onProductCreated={handleProductCreated}
+        />
+      )}
+
       <div className={styles.filters}>
         <input
           type="text"
-          placeholder="Search by title"
+          placeholder="Buscar por título"
           value={filters.title}
           onChange={(e) => handleFilterChange('title', e.target.value)}
           className={styles.searchInput}
@@ -75,7 +98,7 @@ const HomeProductsList = () => {
           onChange={(e) => handleFilterChange('category', e.target.value)}
           className={styles.categorySelect}
         >
-          <option value="">All Categories</option>
+          <option value="">Todas as Categorias</option>
           <option value="femininos">Femininos</option>
           <option value="masculinos">Masculinos</option>
         </select>
@@ -84,9 +107,9 @@ const HomeProductsList = () => {
           onChange={(e) => handleFilterChange('priceSort', e.target.value)}
           className={styles.sortSelect}
         >
-          <option value="">No Sort</option>
-          <option value="asc">Price: Low to High</option>
-          <option value="desc">Price: High to Low</option>
+          <option value="">Sem Ordenação</option>
+          <option value="asc">Preço: Menor para Maior</option>
+          <option value="desc">Preço: Maior para Menor</option>
         </select>
       </div>
       <div className={styles.productsGrid}>
@@ -115,17 +138,17 @@ const HomeProductsList = () => {
           onClick={() => handlePageChange(page - 1)}
           disabled={page === 1}
         >
-          Previous
+          Anterior
         </button>
         <span>
-          Page {page} of {totalPages}
+          Página {page} de {totalPages}
         </span>
         <button
           className={styles.pageBtn}
           onClick={() => handlePageChange(page + 1)}
           disabled={page === totalPages}
         >
-          Next
+          Próxima
         </button>
       </div>
     </div>
