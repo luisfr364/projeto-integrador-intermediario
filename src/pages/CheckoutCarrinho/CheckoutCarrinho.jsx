@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import useProdutosLocalStorage from '../../hooks/useProdutosLocalStorage';
-import RemoveAdicionaBtn from '../../components/reusable/removeAdicionaBtn/RemoveAdicionaBtn';
 import styles from './CheckoutCarrinho.module.css';
 import CardCheckoutCarrinho from '../../components/CardCheckoutCarrinho/CardCheckoutCarrinho';
 import currencyToFloat from '../../util/currencyToFloat';
 import Header from '../../components/Header/Header.jsx';
+import PaymentForm from './PaymentForm';
 
 function CheckoutCarrinho() {
   const {
@@ -16,6 +16,21 @@ function CheckoutCarrinho() {
 
   const [cep, setCep] = useState('');
   const [precoFrete, setPrecoFrete] = useState(0);
+  const [showPayment, setShowPayment] = useState(false);
+
+  const handlePaymentSubmit = (paymentInfo) => {
+    // Here you will handle the final API call with cart and payment info
+    console.log('Finalizing order with payment info:', paymentInfo);
+    alert('Compra finalizada com sucesso!');
+  };
+
+  const subtotal = produtos.reduce(
+    (accumulator, current) =>
+      accumulator + currencyToFloat(current.preco) * current.quantidade,
+    0
+  );
+
+  const total = subtotal + precoFrete;
 
   return (
     <>
@@ -29,16 +44,15 @@ function CheckoutCarrinho() {
             </div>
           ) : (
             <ul className={styles.lista}>
-              {produtos != null &&
-                produtos.map((produto) => (
-                  <CardCheckoutCarrinho
-                    key={produto.produtoId}
-                    produtoObj={produto}
-                    removeProduto={removeProduto}
-                    aumentaQuantidadeProduto={aumentaQuantidadeProduto}
-                    diminuiQuantidadeProduto={diminuiQuantidadeProduto}
-                  />
-                ))}
+              {produtos.map((produto) => (
+                <CardCheckoutCarrinho
+                  key={produto.produtoId}
+                  produtoObj={produto}
+                  removeProduto={removeProduto}
+                  aumentaQuantidadeProduto={aumentaQuantidadeProduto}
+                  diminuiQuantidadeProduto={diminuiQuantidadeProduto}
+                />
+              ))}
             </ul>
           )}
         </div>
@@ -46,17 +60,7 @@ function CheckoutCarrinho() {
           <h2 className={styles.tituloResumo}>Resumo do Pedido</h2>
           <div className={styles.resumoPedidoTotalContainer}>
             <h4>Subtotal: </h4>
-            <span>
-              R${' '}
-              {produtos
-                .reduce(
-                  (accumulator, current) =>
-                    accumulator +
-                    currencyToFloat(current.preco) * current.quantidade,
-                  0
-                )
-                .toFixed(2)}
-            </span>
+            <span>R$ {subtotal.toFixed(2)}</span>
           </div>
 
           <div className={styles.resumoPedidoTotalContainer}>
@@ -66,17 +70,7 @@ function CheckoutCarrinho() {
 
           <div className={styles.resumoPedidoTotalContainer}>
             <h4>Total: </h4>
-            <span>
-              R${' '}
-              {(
-                produtos.reduce(
-                  (accumulator, current) =>
-                    accumulator +
-                    currencyToFloat(current.preco) * current.quantidade,
-                  0
-                ) + precoFrete
-              ).toFixed(2)}
-            </span>
+            <span>R$ {total.toFixed(2)}</span>
           </div>
 
           <div className={styles.calculaFreteContainer}>
@@ -85,19 +79,36 @@ function CheckoutCarrinho() {
               <input
                 id="cep"
                 type="text"
-                placeholder="Digite seu endereço"
+                placeholder="Digite seu CEP"
                 className={styles.inputEndereco}
+                value={cep}
+                onChange={(e) => setCep(e.target.value)}
               />
             </div>
-
             <button onClick={() => setPrecoFrete(Math.random() * 100)}>
               Calcular
             </button>
           </div>
-          <div className={styles.checkoutBtnContainer}>
-            <button
-              className={`${styles.checkoutBtn} ${styles.primary}`}
-              disabled
+          {!showPayment ? (
+            <div className={styles.checkoutBtnContainer}>
+              <button
+                className={`${styles.checkoutBtn} ${styles.primary}`}
+                onClick={() => setShowPayment(true)}
+                disabled={produtos.length === 0}
+              >
+                Ir para o Pagamento
+              </button>
+            </div>
+          ) : (
+            <PaymentForm onPaymentSubmit={handlePaymentSubmit} />
+          )}
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default CheckoutCarrinho;
             >
               Ir para pagamentos
             </button>
