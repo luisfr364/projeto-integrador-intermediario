@@ -19,7 +19,7 @@ function CheckoutCarrinho() {
   const [showPayment, setShowPayment] = useState(false);
 
   const handlePaymentSubmit = (paymentInfo) => {
-    // Here you will handle the final API call with cart and payment info
+    //
     console.log('Finalizing order with payment info:', paymentInfo);
     alert('Compra finalizada com sucesso!');
   };
