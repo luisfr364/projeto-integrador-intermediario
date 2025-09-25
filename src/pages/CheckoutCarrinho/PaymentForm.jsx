@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './PaymentForm.module.css';
 import { useNavigate } from 'react-router-dom';
+import { apiUrl } from '../../util/urls';
 
 const PaymentForm = ({ onPaymentSubmit }) => {
   const [cardInfo, setCardInfo] = useState({
@@ -15,8 +16,8 @@ const PaymentForm = ({ onPaymentSubmit }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Placeholder for actual auth state
   useEffect(() => {
     async function checkAuth() {
-      const response = await fetch(`http://localhost:3001/auth/validate`, {
-        method: 'GET',
+      const response = await fetch(`${apiUrl}/login/validate`, {
+        method: 'POST',
         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
