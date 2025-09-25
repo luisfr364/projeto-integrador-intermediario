@@ -100,10 +100,29 @@ function DashboardProductList() {
     fetchProducts(); // Re-fetch products after a new one is created
   };
 
+  const handleProductDelete = async (productId) => {
+    try {
+      const response = await fetch(`${apiUrl}/products/${productId}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`Erro ao deletar produto: ${response.status}`);
+      }
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== productId)
+      );
+    } catch (err) {
+      console.error('Error deleting product:', err);
+      setError(err.message);
+    }
+  };
+
   const handleSave = (productId, updatedData) => {
-    // Here you will make your API call to update the product
     console.log('Saving product:', productId, updatedData);
-    // For now, just update the state
     setProducts((prevProducts) => {
       if (!Array.isArray(prevProducts)) {
         console.warn(
@@ -176,6 +195,15 @@ function DashboardProductList() {
                   </button>
                   <button
                     className={`${styles.actionButton} ${styles.deleteButton}`}
+                    onClick={async () => {
+                      if (
+                        window.confirm(
+                          'Tem certeza que deseja deletar este produto?'
+                        )
+                      ) {
+                        await handleProductDelete(product.id);
+                      }
+                    }}
                   >
                     Deletar
                   </button>

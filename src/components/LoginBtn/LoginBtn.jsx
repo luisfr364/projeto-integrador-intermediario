@@ -13,6 +13,7 @@ function LoginBtn() {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
+    //TODO: Implement token validation logic
     const token = getCookie('token');
     if (token) {
       navigate('/dashboard');

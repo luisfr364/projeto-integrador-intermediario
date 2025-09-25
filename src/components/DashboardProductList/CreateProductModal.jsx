@@ -19,11 +19,10 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Previne o comportamento padrão do formulário
+    e.preventDefault();
     setIsSubmitting(true);
     setError(null);
 
-    // FormData é usado para enviar arquivos (como imagens) junto com texto
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
@@ -38,7 +37,7 @@ const CreateProductModal = ({ onClose, onProductCreated }) => {
       const response = await fetch(`${apiUrl}/products`, {
         method: 'POST',
         credentials: 'include',
-        body: formData, // Não precisa de 'Content-Type' header, o browser define automaticamente com FormData
+        body: formData, // Não precisa de 'Content-Type'
       });
 
       if (!response.ok) {
