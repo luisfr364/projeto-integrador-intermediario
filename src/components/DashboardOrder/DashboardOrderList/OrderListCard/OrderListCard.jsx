@@ -26,11 +26,6 @@ function OrderListCard({ order }) {
         <p>
           <strong>Total:</strong> R$ {order.total.toFixed(2)}
         </p>
-        {order.user && (
-          <p>
-            <strong>Comprador:</strong> {order.user.name}
-          </p>
-        )}
       </div>
       <div className={styles.cardFooter}>
         <button className={styles.detailsButton}>Ver Detalhes</button>
