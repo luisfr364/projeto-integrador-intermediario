@@ -37,7 +37,6 @@ function Products() {
       );
       const data = await response.json();
       setProducts(data.data);
-      console.log(data);
     }
     fetchProducts();
   }, [searchParams]);
