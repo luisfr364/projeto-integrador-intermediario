@@ -17,7 +17,6 @@ function DashboardProductList() {
         'Fetching products from:',
         `${apiUrl}/products/productsselling`
       );
-      console.log('Using credentials: include');
 
       const response = await fetch(`${apiUrl}/products/productsselling`, {
         method: 'GET',
@@ -27,7 +26,6 @@ function DashboardProductList() {
         },
       });
 
-      console.log('Fetched products response status:', response.status);
       console.log(
         'Fetched products response headers:',
         Object.fromEntries(response.headers.entries())
@@ -170,12 +168,18 @@ function DashboardProductList() {
               <th>Nome</th>
               <th>Preço</th>
               <th>Categoria</th>
+              <th>Status</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             {safeProducts.map((product) => (
-              <tr key={product.id}>
+              <tr
+                key={product.id}
+                className={
+                  product.status === 'inactive' ? styles.inactiveProduct : ''
+                }
+              >
                 <td>
                   <img
                     src={product.image_url}
@@ -186,6 +190,7 @@ function DashboardProductList() {
                 <td>{product.title}</td>
                 <td>{product.unit_price}</td>
                 <td>{product.category}</td>
+                <td>{product.status === 'inactive' ? 'Inativo' : 'Ativo'}</td>
                 <td>
                   <button
                     className={styles.actionButton}
@@ -205,7 +210,7 @@ function DashboardProductList() {
                       }
                     }}
                   >
-                    Deletar
+                    Desativar
                   </button>
                 </td>
               </tr>

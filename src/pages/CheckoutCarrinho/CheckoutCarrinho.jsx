@@ -20,7 +20,6 @@ function CheckoutCarrinho() {
   const [showPayment, setShowPayment] = useState(false);
 
   const handlePaymentSubmit = async (paymentInfo) => {
-    console.log(produtos);
     const response = await fetch(`${apiUrl}/sales/purchase`, {
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +43,6 @@ function CheckoutCarrinho() {
       return;
     }
 
-    console.log('Finalizing order with payment info:', paymentInfo);
     alert('Compra finalizada com sucesso!');
   };
 

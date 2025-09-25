@@ -92,3 +92,9 @@
 .createButton:hover {
   background-color: #218838;
 }
+
+.inactiveProduct {
+  background-color: #f2f2f2;
+  color: #999;
+  text-decoration: line-through;
+}

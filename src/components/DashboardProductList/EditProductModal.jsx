@@ -105,10 +105,10 @@ const EditProductModal = ({ product, onClose, onSave }) => {
               onClick={onClose}
               className={styles.cancelButton}
             >
-              Cancel
+              Cancelar
             </button>
             <button type="submit" className={styles.saveButton}>
-              Save Changes
+              Salvar
             </button>
           </div>
         </form>
