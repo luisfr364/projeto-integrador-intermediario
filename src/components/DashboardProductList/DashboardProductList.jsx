@@ -33,6 +33,25 @@ function DashboardProductList() {
           Array.isArray(responseJSON.data.nodes)
         ) {
           productsData = responseJSON.data.nodes;
+        } else if (typeof responseJSON?.data === 'string') {
+          try {
+            const parsed = JSON.parse(responseJSON.data);
+            if (Array.isArray(parsed)) {
+              productsData = parsed;
+            } else if (parsed && typeof parsed === 'object') {
+              productsData = Object.values(parsed);
+            }
+          } catch (parseError) {
+            console.warn(
+              'Failed to parse stringified data payload',
+              parseError
+            );
+          }
+        } else if (
+          responseJSON?.data &&
+          typeof responseJSON.data === 'object'
+        ) {
+          productsData = Object.values(responseJSON.data);
         } else {
           console.warn(
             'Expected an array of products but received:',
